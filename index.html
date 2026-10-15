@@ -82,6 +82,18 @@ td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}tr:n
 .lg .lc{max-width:430px;text-align:left;border:1px solid var(--line);border-radius:20px;padding:42px 38px 36px;box-shadow:var(--sh1)}
 .lg .lc h1{font-size:32px;margin:0 0 6px}
 @media(max-width:860px){.lg{grid-template-columns:1fr;min-height:100vh}.lb{padding:30px 20px}.lb::after{inset:auto 0 0 0;width:auto;height:5px}.med{width:120px;height:120px}.lbl{height:84px}.lbn{font-size:26px;margin-top:20px}.lbt{margin-top:6px;font-size:17px}.lbt::after,.lbs{display:none}.lcw{padding:20px 16px}.lg .lc{padding:30px 22px}}
+
+.top{position:relative;z-index:2;color:#fff;background:var(--grain),radial-gradient(circle at 6% 100%,rgba(198,161,91,.3),transparent 40%),repeating-radial-gradient(circle at 94% 40%,rgba(255,255,255,0) 0 44px,rgba(198,161,91,.14) 45px 46px),linear-gradient(165deg,#1A3B6C,#0C1E42 80%);box-shadow:0 5px 0 var(--gold)}
+.top .sh{background:none;box-shadow:none}.top .sh img,.top .sh svg{height:58px;width:58px;object-fit:contain;border-radius:50%;padding:6px;background:#fff;box-shadow:0 0 0 3px rgba(198,161,91,.7)}
+.hero{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;padding:10px 28px 32px}
+.hero h1{font-size:36px;color:#fff}.hero p{margin:8px 0 0;color:#C9D6EE;font-size:18px;max-width:430px}
+.stats{display:flex;gap:12px;flex-wrap:wrap}.stat{min-width:120px;padding:15px 20px;border-radius:14px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);text-align:center}
+.stat b{display:block;font:700 36px/1.1 var(--serif);color:#fff;font-variant-numeric:tabular-nums}.stat span{font-size:15px;color:var(--gold2)}
+.st-Submitted{background:#FCE9C2;color:#7A4E00}.st-Graded{background:#DCE8FA;color:#1C3F73}.st-Released{background:#D7F0E4;color:#165C40}
+.grid .card{border-top:4px solid var(--gold)}
+@media(max-width:800px){.hero{padding:6px 16px 22px}.hero h1{font-size:27px}.stats{display:grid;grid-template-columns:1fr 1fr;width:100%}.stat{min-width:0;padding:12px}.stat b{font-size:28px}}
+.grid .card .row{justify-content:flex-start;margin-top:14px}
+.btn.sm{margin:0;max-width:none;overflow:visible}
 </style></head>
 <body><div id="app"></div><div id="modal"></div>
 <script>
@@ -188,7 +200,9 @@ const tname=u=>(D.staff.find(s=>s.Username===u)||{}).Name||(u===D.me.user?D.me.n
 const inO=r=>!fo||ownerOf(r.Code)===fo;
 const exList=()=>D.exams.filter(e=>!fo||exOwn(e)===fo);
 const nameOf=r=>(D.cands.find(c=>c.Code==r.Code&&c.Username==r.Username)||{}).Name||r.Username;
-const rerender=()=>({Submissions:tSubs,Exams:tExams,Candidates:tCands,Staff:tStaff}[tab])();
+const rerender=()=>{({Submissions:tSubs,Exams:tExams,Candidates:tCands,Staff:tStaff}[tab])();heroStats()};
+const heroStats=()=>{const h=$('#hero');if(!h||!D)return;const n=D.subs.filter(r=>r.Status==='Submitted').length;
+ h.innerHTML=`<div><h1>Welcome back, ${esc(String(D.me.name||'').split(' ')[0])}</h1><p>${adm()?'Manage every exam, teacher and result from one place.':'Your exams, students and results are all here.'}</p></div><div class="stats">${[['Exams',D.exams.length],['Students',D.cands.length],['Submissions',D.subs.length],['Awaiting marking',n]].map(([a,b])=>`<div class="stat"><b>${b}</b><span>${a}</span></div>`).join('')}</div>`};
 const exSel=id=>exList().length?`<select id="${id}">${exList().map(e=>`<option value="${esc(e.Code)}">${esc(e.Code)} – ${esc(e.Title)}</option>`).join('')}</select>`:`<p class="err">Create an exam first.</p><input id="${id}" style="display:none">`;
 // Administrators can look at one teacher's classes at a time, or at everyone's.
 const fBar=()=>adm()?`<div class="row" style="margin-bottom:14px"><label for="fo" style="margin:0">Teacher</label><select id="fo" style="width:auto;min-width:240px" onchange="fo=this.value;rerender()"><option value="">All teachers</option>${D.staff.map(s=>`<option value="${esc(s.Username)}" ${fo===s.Username?'selected':''}>${esc(s.Name)} (${esc(s.Username)})</option>`).join('')}</select></div>`:'';
@@ -213,7 +227,7 @@ async function staff(){try{D=await R('staffData',TOK)}catch(e){const m=String(e.
 // Everything below works from the data already in the browser, so switching tabs costs no waiting.
 function drawStaff(){
  const T=['Submissions','Exams','Candidates'].concat(adm()?['Staff']:[]);
- shell(`<header class="sh">${logo()}<div><div class="sn">${SCHOOL}</div><small style="color:var(--gold2)">${adm()?'Administration':'Teacher room'}</small></div><nav>${T.map(t=>`<button class="${t===tab?'on':''}" onclick="goTab('${t}')">${t}</button>`).join('')}</nav><div class="row"><small style="color:var(--gold2)">${esc(D.me.name)}</small><button class="btn sm ghost" onclick="refresh(false,this)">Refresh</button><button class="btn sm gold" onclick="pwModal(false)">Password</button><button class="btn sm ghost" onclick="out()">Sign out</button></div></header><main class="sm" id="sp"></main>`);
+ shell(`<div class="top"><header class="sh">${logo()}<div><div class="sn">${SCHOOL}</div><small style="color:var(--gold2)">${adm()?'Administration':'Teacher room'}</small></div><nav>${T.map(t=>`<button class="${t===tab?'on':''}" onclick="goTab('${t}')">${t}</button>`).join('')}</nav><div class="row"><small style="color:var(--gold2)">${esc(D.me.name)}</small><button class="btn sm ghost" onclick="refresh(false,this)">Refresh</button><button class="btn sm gold" onclick="pwModal(false)">Password</button><button class="btn sm ghost" onclick="out()">Sign out</button></div></header><section class="hero" id="hero"></section></div><main class="sm" id="sp"></main>`);
  if(!T.includes(tab))tab='Submissions';rerender();
  // New submissions appear by themselves: a quiet check once a minute while the Submissions tab is open.
  if(!rt)rt=setInterval(()=>{if(TOK&&D&&tab==='Submissions'&&!dr&&!document.hidden&&!$('#modal').innerHTML)refresh(true)},60000)}
@@ -223,7 +237,7 @@ async function refresh(quiet,b){if(b){b.disabled=true;b.textContent='Refreshing�
  catch(e){const m=String(e.message||e);if(/expired|password first/i.test(m)){setTok('');staffLoginView('Your session ended. Please sign in again.')}else if(!quiet)toast(m)}
  finally{if(b&&b.isConnected){b.disabled=false;b.textContent='Refresh'}}}
 function tSubs(){const L2=D.subs.map((r,i)=>[r,i]).filter(([r])=>inO(r));
- $('#sp').innerHTML=`<div class="bar"><h2>Submissions</h2></div>${fBar()}<div class="card tw"><table><tr><th>Student</th><th>Exam</th>${adm()?'<th>Teacher</th>':''}<th>Auto</th><th>Manual</th><th>Comment</th><th>Warnings</th><th>Status</th><th></th></tr>${L2.map(([r,i])=>`<tr><td>${esc(nameOf(r))}</td><td>${esc(r.Code)}</td>${adm()?`<td>${esc(tname(ownerOf(r.Code)))}</td>`:''}<td>${r.Auto}</td><td>${r.Manual}</td><td>${String(r.Comment||'').trim()?'Added':'<span class="mut">None</span>'}</td><td>${r.Violations}</td><td><span class="tag">${esc(r.Status)}</span></td><td><button class="btn sm ghost" onclick="view(${i})">View</button> <button class="btn sm gold" onclick="gr(${i})">Mark and comment</button> <button class="btn sm" onclick="rel(${i})">Release</button></td></tr>`).join('')||`<tr><td colspan="${adm()?9:8}" class="mut">No submissions yet.</td></tr>`}</table></div>`}
+ $('#sp').innerHTML=`<div class="bar"><h2>Submissions</h2></div>${fBar()}<div class="card tw"><table><tr><th>Student</th><th>Exam</th>${adm()?'<th>Teacher</th>':''}<th>Auto</th><th>Manual</th><th>Comment</th><th>Warnings</th><th>Status</th><th></th></tr>${L2.map(([r,i])=>`<tr><td>${esc(nameOf(r))}</td><td>${esc(r.Code)}</td>${adm()?`<td>${esc(tname(ownerOf(r.Code)))}</td>`:''}<td>${r.Auto}</td><td>${r.Manual}</td><td>${String(r.Comment||'').trim()?'Added':'<span class="mut">None</span>'}</td><td>${r.Violations}</td><td><span class="tag st-${esc(r.Status)}">${esc(r.Status)}</span></td><td><button class="btn sm ghost" onclick="view(${i})">View</button> <button class="btn sm gold" onclick="gr(${i})">Mark and comment</button> <button class="btn sm" onclick="rel(${i})">Release</button></td></tr>`).join('')||`<tr><td colspan="${adm()?9:8}" class="mut">No submissions yet.</td></tr>`}</table></div>`}
 function tExams(){
  if(dr)return edView();
  const L2=exList();
@@ -269,7 +283,7 @@ async function saveExam(b){const d=dr;if(!d.title.trim())return toast('Add an ex
  if(b){b.disabled=true;b.textContent='Saving…'}
  try{const r=await R('saveExam',TOK,e);D=r.data;dr=null;rerender();toast('Exam saved. Exam code: '+r.code,true)}catch(er){if(b){b.disabled=false;b.textContent='Save exam'}toast(er.message||er)}}
 function tCands(){const L2=D.cands.filter(inO);
- $('#sp').innerHTML=`<div class="bar"><h2>Candidates</h2></div>${fBar()}<div class="card"><div class="fg"><div><label>Exam</label>${exSel('rc')}</div><div><label>Full name</label><input id="rn"></div><div><label>Class</label><input id="rl"></div><div><label>Email</label><input id="re"></div></div><button class="btn" style="margin-top:14px" onclick="reg(this)">Register student</button></div>
+ $('#sp').innerHTML=`<div class="bar"><h2>Candidates</h2></div>${fBar()}<div class="card"><h3 style="margin-bottom:4px">Register a student</h3><p class="mut" style="margin:0 0 6px">Choose the exam, then add the student's details. A username and passcode are created automatically.</p><div class="fg"><div><label>Exam</label>${exSel('rc')}</div><div><label>Full name</label><input id="rn"></div><div><label>Class</label><input id="rl"></div><div><label>Email</label><input id="re"></div></div><button class="btn" style="margin-top:14px" onclick="reg(this)">Register student</button></div>
  <div class="card tw"><table><tr><th>Exam</th>${adm()?'<th>Teacher</th>':''}<th>Username</th><th>Passcode</th><th>Name</th><th>Class</th><th>Email</th><th></th></tr>${L2.map(c=>`<tr><td>${esc(c.Code)}</td>${adm()?`<td>${esc(tname(ownerOf(c.Code)))}</td>`:''}<td><b>${esc(c.Username)}</b></td><td><b>${esc(c.Passcode)}</b></td><td>${esc(c.Name)}</td><td>${esc(c.Class)}</td><td>${esc(c.Email)}</td><td><button class="btn sm ghost" onclick="lnk('${esc(c.Code)}','${esc(c.Username)}',this)">Email login</button></td></tr>`).join('')||`<tr><td colspan="${adm()?8:7}" class="mut">No students registered yet.</td></tr>`}</table></div>`}
 function tStaff(){$('#sp').innerHTML=`<div class="bar"><h2>Staff</h2></div><div class="card"><h3>Add a teacher or administrator</h3><div class="fg"><div><label for="sn1">Full name</label><input id="sn1"></div><div><label for="se">Email</label><input id="se" type="email"></div><div><label for="su2">Username <small>(optional)</small></label><input id="su2" autocomplete="off" placeholder="Made from the email if left empty"></div><div><label for="sr">Role</label><select id="sr"><option value="teacher">Teacher</option><option value="admin">Administrator</option></select></div></div>
  <label class="chk" style="margin-top:12px"><input type="checkbox" id="sm" checked> Email the login details to this person</label><button class="btn" style="margin-top:14px" onclick="addStaff(this)">Create account</button></div>
