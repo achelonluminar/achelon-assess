@@ -115,6 +115,18 @@ td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}tr:n
 main.sm{grid-column:2;width:100%;max-width:1180px;margin:0;padding:34px 44px 44px}
 }
 @media(max-width:620px){.hb{grid-template-columns:1fr 52px}.hb .ht{grid-column:1/-1;order:3}}
+
+/* ---- Student side: marble background (exam header, waiting hall, result page) ---- */
+.xh{background:linear-gradient(rgba(6,20,44,.22),rgba(6,20,44,.5)),var(--marble) 60% 40%/cover no-repeat #0C1E42;color:#fff;box-shadow:0 5px 0 var(--gold)}
+.xh .sn,.xh h2{color:#fff}.xh .inf summary{color:var(--gold2)}.xh .inf dl{color:var(--ink)}.xh .xr small{color:var(--gold2);margin-left:10px}
+.xh .xlogo{width:62px;object-fit:contain;background:#fff;border-radius:50%;padding:5px;box-shadow:0 0 0 3px rgba(198,161,91,.7)}
+.xh .tm{box-shadow:0 0 0 2px rgba(198,161,91,.8),0 4px 12px rgba(0,0,0,.35)}.xh .tm.low{box-shadow:0 0 0 2px #fff8,0 4px 12px rgba(0,0,0,.35)}
+@media screen{
+body:has(#app>.hall){background:linear-gradient(rgba(6,20,44,.3),rgba(6,20,44,.5)),var(--marble) 55% 50%/cover no-repeat #0C1E42;background-attachment:fixed}
+#app>.hall{color:#DCE6F7}#app>.hall>.sn,#app>.hall>h1{color:#fff}#app>.hall>p b{color:#fff!important}#app>.hall>p.mut{color:#C9D6EE}
+#app>.hall>img,#app>.hall>svg{width:100px;height:100px;object-fit:contain;background:#fff;border-radius:50%;padding:10px;box-shadow:0 0 0 4px rgba(198,161,91,.7),0 0 0 12px rgba(255,255,255,.08),0 16px 40px rgba(0,0,0,.4)}
+#app>.hall .card{background:rgba(255,255,255,.96);color:var(--ink)}
+}
 </style></head>
 <body><div id="app"></div><div id="modal"></div>
 <script>
