@@ -135,7 +135,7 @@ const LOGO='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXEAAAF8CAMAAAAOx3tIAA
 const SCHOOL='Achelon Luminar Academy';
 const P=new URLSearchParams(location.search);let TOK='';try{TOK=sessionStorage.getItem('alst')||''}catch(e){}
 const setTok=t=>{TOK=t||'';try{t?sessionStorage.setItem('alst',t):sessionStorage.removeItem('alst')}catch(e){}};
-const STAFF=P.has('staff')||P.has('t')||P.has('a');
+let STAFF=false;const KEY=P.get('k')||'';
 const $=s=>document.querySelector(s),esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const isDrive=s=>/drive\.google\.com|docs\.google\.com|^[-\w]{25,}$/.test(String(s||'').trim());
 const pic=(u,c)=>isDrive(u)?`<img class="${c}" data-drv="${esc(u)}" alt="Loading picture…">`:`<img class="${c}" src="${esc(u)}" alt="">`;
@@ -146,7 +146,7 @@ const getP=i=>PP[i]||(PP[i]=R('getPaper',S.tok,S.exam.papers[i].n).catch(e=>{del
 const warmPaper=i=>{if(i<0||i>=S.exam.papers.length)return;getP(i).then(p=>{papers[i]=papers[i]||p;[p.meta.audio,p.meta.image,...p.qs.map(q=>q.image)].filter(x=>x&&isDrive(x)).forEach(x=>getF(x).catch(()=>{}))}).catch(()=>{})};
 const loadImgs=()=>document.querySelectorAll('img[data-drv]').forEach(async im=>{try{im.src=await getF(im.dataset.drv)}catch(e){im.alt='The picture could not be loaded.'}});
 const nl=s=>esc(s).replace(/\n/g,'<br>'),wc=s=>String(s||'').trim()?String(s).trim().split(/\s+/).length:0,L=i=>String.fromCharCode(65+i);
-const R=async(fn,...args)=>{const r=await fetch(API_URL,{method:'POST',body:JSON.stringify({fn,args})});const j=await r.json();if(!j.ok)throw j.e;return j.v};
+const R=async(fn,...args)=>{const r=await fetch(API_URL,{method:'POST',body:JSON.stringify({fn,args,k:KEY})});const j=await r.json();if(!j.ok)throw j.e;return j.v};
 const FB='<svg viewBox="0 0 100 110" height="60" role="img" aria-label="Crest"><path d="M50 4 94 20v40c0 24-20 38-44 46C26 98 6 84 6 60V20z" fill="#fff" stroke="#C6A15B" stroke-width="5"/><path d="M50 13 85 26v34c0 18-15 30-35 37C30 90 15 78 15 60V26z" fill="none" stroke="#1C3F73" stroke-width="4"/><text x="50" y="64" text-anchor="middle" font-size="30" font-weight="bold" fill="#1C3F73" font-family="Georgia,serif">AL</text></svg>';
 const logo=c=>`<img class="${c||''}" src="${LOGO}" alt="${SCHOOL} crest" onerror="this.outerHTML=FB">`;
 const lbrand=(t,x)=>`<aside class="lb"><div class="med">${logo('lbl')}</div><div class="lbn">${SCHOOL}</div><div class="lbt">${t}</div><p class="lbs">${x}</p></aside>`;
@@ -378,5 +378,14 @@ async function resultView(){shell(`<div class="brk"><div class="card"><h2>Loadin
   <div class="card" style="text-align:left;border-left:4px solid var(--gold)"><b>Teacher's comments</b><p style="white-space:pre-wrap;margin:6px 0 0">${esc(d.comment)||'No comments were added.'}</p></div>
   <button class="btn gold" id="pr">Save or print as PDF</button></div>`);$('#pr').onclick=()=>window.print()}
  catch(e){shell(`<div class="brk"><div class="card"><h2>Result unavailable</h2><p class="err">${esc(e.message||e)}</p></div></div>`)}}
-if(P.get('r'))resultView();else if(STAFF)(TOK?staff():staffLoginView());else loginView();
+function crash(){document.title='404 Not Found';document.body.style.cssText='background:#fff;margin:0';document.body.innerHTML='<div style="font:16px/1.5 Arial,Helvetica,sans-serif;padding:40px;color:#222"><h1 style="font:700 32px Arial,sans-serif;margin:0 0 12px">Not Found</h1><p>The requested URL was not found on this server.</p><hr style="border:0;border-top:1px solid #ccc;margin:24px 0"><address style="font-size:13px;color:#666;font-style:normal">Server</address></div>'}
+(async()=>{
+ if(P.get('r')){resultView();return}                    // emailed result links carry their own signed token
+ if(KEY.length<30){crash();return}                      // no key, or a clearly damaged one: no network call at all
+ $('#app').innerHTML='<div class="brk"><p class="mut">Loading…</p></div>';
+ let kind;try{kind=await R('whichKey')}catch(e){$('#app').innerHTML='<div class="brk"><p class="mut">Could not reach the exam service. Check your connection and refresh.</p></div>';return}
+ if(!kind){crash();return}                              // one wrong or missing character lands here
+ STAFF=kind==='staff';
+ if(STAFF)(TOK?staff():staffLoginView());else loginView();
+})();
 </script></body></html>
