@@ -127,6 +127,31 @@ body:has(#app>.hall){background:linear-gradient(rgba(6,20,44,.3),rgba(6,20,44,.5
 #app>.hall>img,#app>.hall>svg{width:100px;height:100px;object-fit:contain;background:#fff;border-radius:50%;padding:10px;box-shadow:0 0 0 4px rgba(198,161,91,.7),0 0 0 12px rgba(255,255,255,.08),0 16px 40px rgba(0,0,0,.4)}
 #app>.hall .card{background:rgba(255,255,255,.96);color:var(--ink)}
 }
+
+/* ---- Sign-in / sign-out transition ---- */
+.fx{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;text-align:center;color:#fff;opacity:0;transition:opacity .5s ease;background:linear-gradient(rgba(6,20,44,.45),rgba(6,20,44,.72)),var(--marble) 55% 50%/cover no-repeat #0C1E42}
+.fx.on{opacity:1}
+.fxb{display:flex;flex-direction:column;align-items:center;gap:30px;padding:24px;max-width:92vw}
+.fxm{position:relative;width:104px;height:104px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 4px rgba(198,161,91,.75),0 18px 44px rgba(0,0,0,.45);animation:fxpop .6s cubic-bezier(.2,.9,.3,1.2) both}
+.fxm img,.fxm svg{width:80px;height:80px;object-fit:contain}
+.fxm::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:3px solid transparent;border-top-color:var(--gold);border-right-color:rgba(198,161,91,.35);animation:fxspin 1s linear infinite}
+.fx.done .fxm::after{animation:none;border-color:rgba(198,161,91,.5)}
+.fxc{min-height:130px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.fxt{font-size:1.7rem;font-weight:600;letter-spacing:.3px}
+.dots i{font-style:normal;animation:fxdot 1.2s infinite both}.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}
+.fxh{font-size:1.35rem;color:var(--gold2);animation:fxup .6s .05s both}
+.fxn{font-size:2.6rem;font-weight:700;line-height:1.2;animation:fxup .7s .25s both}
+.fxn::after{content:"";display:block;height:2px;margin:12px auto 0;background:var(--gold);width:0;animation:fxline .9s .7s forwards}
+.fxs{color:#DCE6F7;animation:fxup .7s .65s both}
+.wave{display:inline-block;transform-origin:70% 75%;animation:fxwave 1.5s .3s both}
+@keyframes fxspin{to{transform:rotate(360deg)}}
+@keyframes fxpop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+@keyframes fxup{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fxline{to{width:120px}}
+@keyframes fxdot{0%,80%,100%{opacity:.2}40%{opacity:1}}
+@keyframes fxwave{0%,60%,100%{transform:rotate(0)}10%{transform:rotate(16deg)}20%{transform:rotate(-8deg)}30%{transform:rotate(16deg)}40%{transform:rotate(-4deg)}50%{transform:rotate(10deg)}}
+@media(prefers-reduced-motion:reduce){.fx,.fx *,.fx *::after{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}}
+@media print{.fx{display:none}}
 </style></head>
 <body><div id="app"></div><div id="modal"></div>
 <script>
@@ -267,12 +292,32 @@ const exSel=id=>exList().length?`<select id="${id}">${exList().map(e=>`<option v
 // Administrators can look at one teacher's classes at a time, or at everyone's.
 const fBar=()=>adm()?`<div class="row" style="margin-bottom:14px"><label for="fo" style="margin:0">Teacher</label><select id="fo" style="width:auto;min-width:240px" onchange="fo=this.value;rerender()"><option value="">All teachers</option>${D.staff.map(s=>`<option value="${esc(s.Username)}" ${fo===s.Username?'selected':''}>${esc(s.Name)} (${esc(s.Username)})</option>`).join('')}</select></div>`:'';
 
+
+/* ---- Sign-in / sign-out transition: a full-screen message, a greeting, then a fade to the next screen ---- */
+const fxDelay=ms=>new Promise(r=>setTimeout(r,ms));
+function fxShow(msg){let e=$('#fx');if(e)e.remove();e=document.createElement('div');e.id='fx';e.className='fx';e.setAttribute('role','status');e.setAttribute('aria-live','polite');
+ e.innerHTML=`<div class="fxb"><div class="fxm">${logo()}</div><div class="fxc" id="fxc"><div class="fxt">${msg}<span class="dots"><i>.</i><i>.</i><i>.</i></span></div></div></div>`;
+ document.body.appendChild(e);void e.offsetWidth;e.classList.add('on');return fxDelay(520)}
+async function fxGreet(kind,name){const e=$('#fx'),c=$('#fxc');if(!e||!c)return;const h=new Date().getHours();
+ const hi=kind==='in'?(h<12?'Good morning':h<18?'Good afternoon':'Good evening'):'Goodbye';
+ const sub=kind==='in'?'Welcome back to '+esc(SCHOOL):'You have been signed out. See you soon.';
+ e.classList.add('done');c.innerHTML=`<div class="fxh"><span class="wave">👋</span> ${hi},</div><div class="fxn">${esc(name||'')}</div><div class="fxs">${sub}</div>`;
+ await fxDelay(kind==='in'?1900:1700)}
+function fxHide(){const e=$('#fx');if(!e)return;e.classList.remove('on');setTimeout(()=>e.remove(),650)}
 function staffLoginView(msg){
  warm();
  shell(`<div class="lg">${lbrand('Staff room','Create exams, mark written answers and release results to your students.')}<div class="lcw"><div class="lc"><h1>Staff sign in</h1><p class="mut">Teachers and administrators sign in with their own account.</p>
  <label for="su">Username</label><input id="su" autocomplete="username"><label for="sp2">Password</label><input id="sp2" type="password" autocomplete="current-password">
  <p class="err" id="err">${esc(msg||'')}</p><button class="btn w" id="go">Sign in</button></div></div></div>`);
- const go=async()=>{const pw=$('#sp2').value;try{const r=await R('staffLogin',$('#su').value.trim(),pw);setTok(r.tok);r.must?pwModal(true,pw):staff()}catch(e){$('#err').textContent=String(e.message||e)}};
+ const go=async()=>{if($('#go').disabled)return;const u=$('#su').value.trim(),pw=$('#sp2').value;
+  if(!u||!pw){$('#err').textContent='Enter your username and password.';return}
+  $('#err').textContent='';$('#go').disabled=true;const shown=fxShow('Logging in');
+  try{const r=await R('staffLogin',u,pw);setTok(r.tok);await shown;
+   if(r.must){fxHide();$('#go').disabled=false;pwModal(true,pw);return}
+   await staff();                                              // loads the data and draws the room underneath the message
+   if($('#app').classList.contains('sa'))await fxGreet('in',D.me.name);
+   fxHide()}                                                   // the message fades away and the room is revealed
+  catch(e){await shown;fxHide();$('#go').disabled=false;$('#err').textContent=String(e.message||e)}};
  $('#go').onclick=go;$('#sp2').onkeydown=e=>{if(e.key==='Enter')go()};$('#su').onkeydown=e=>{if(e.key==='Enter')$('#sp2').focus()}}
 function pwModal(forced,cur){
  modal(`<h3>${forced?'Choose your own password':'Change password'}</h3><p class="mut">${forced?'Your account is using a temporary password. Choose a new one to continue.':'Use at least 8 characters, with letters and numbers.'}</p>
@@ -281,7 +326,10 @@ function pwModal(forced,cur){
  <div class="row"><button class="btn gold" id="ps">Save password</button>${forced?'':'<button class="btn ghost" onclick="closeM()">Cancel</button>'}</div>`);
  $('#ps').onclick=async()=>{const a=forced?cur:$('#p0').value,b=$('#p1').value;if(b!==$('#p2').value)return $('#pe').textContent='The two new passwords do not match.';
   try{await R('changePassword',TOK,a,b);closeM();toast('Password changed.',true);if(forced)staff()}catch(e){$('#pe').textContent=String(e.message||e)}}}
-async function out(){try{await R('staffLogout',TOK)}catch(e){}clearInterval(rt);rt=0;setTok('');fo='';tab='Home';staffLoginView()}
+async function out(){const nm=D&&D.me?D.me.name:'';const shown=fxShow('Logging out');
+ try{await Promise.all([R('staffLogout',TOK).catch(()=>{}),shown,fxDelay(800)])}catch(e){}
+ clearInterval(rt);rt=0;setTok('');fo='';tab='Home';
+ await fxGreet('out',nm);staffLoginView();fxHide()}   // the room fades out and the sign-in screen is revealed
 async function staff(){try{D=await R('staffData',TOK)}catch(e){const m=String(e.message||e);if(/expired|password first/i.test(m)){setTok('');return staffLoginView(/expired/i.test(m)?'Your session ended. Please sign in again.':'')}return shell(`<div class="brk"><div class="card"><h2>Access denied</h2><p class="err">${esc(m)}</p></div></div>`)}
  drawStaff()}
 // Everything below works from the data already in the browser, so switching tabs costs no waiting.
