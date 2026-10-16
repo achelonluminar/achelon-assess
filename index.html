@@ -378,13 +378,17 @@ async function resultView(){shell(`<div class="brk"><div class="card"><h2>Loadin
   <div class="card" style="text-align:left;border-left:4px solid var(--gold)"><b>Teacher's comments</b><p style="white-space:pre-wrap;margin:6px 0 0">${esc(d.comment)||'No comments were added.'}</p></div>
   <button class="btn gold" id="pr">Save or print as PDF</button></div>`);$('#pr').onclick=()=>window.print()}
  catch(e){shell(`<div class="brk"><div class="card"><h2>Result unavailable</h2><p class="err">${esc(e.message||e)}</p></div></div>`)}}
+// Browser-tab icon: the school crest on a white disc. Set only after the address key is accepted, so the 404 page shows no branding.
+function setIcon(){const put=h=>{let l=document.querySelector('link[rel=icon]');if(!l){l=document.createElement('link');l.rel='icon';document.head.appendChild(l)}l.type='image/png';l.href=h};
+ try{const i=new Image();i.onload=()=>{const c=document.createElement('canvas');c.width=c.height=64;const x=c.getContext('2d');x.fillStyle='#fff';x.beginPath();x.arc(32,32,32,0,7);x.fill();const r=Math.min(48/i.width,48/i.height);x.drawImage(i,32-i.width*r/2,32-i.height*r/2,i.width*r,i.height*r);put(c.toDataURL('image/png'))};i.onerror=()=>put(LOGO);i.src=LOGO}catch(e){put(LOGO)}}
 function crash(){document.title='404 Not Found';document.body.style.cssText='background:#fff;margin:0';document.body.innerHTML='<div style="font:16px/1.5 Arial,Helvetica,sans-serif;padding:40px;color:#222"><h1 style="font:700 32px Arial,sans-serif;margin:0 0 12px">Not Found</h1><p>The requested URL was not found on this server.</p><hr style="border:0;border-top:1px solid #ccc;margin:24px 0"><address style="font-size:13px;color:#666;font-style:normal">Server</address></div>'}
 (async()=>{
- if(P.get('r')){resultView();return}                    // emailed result links carry their own signed token
+ if(P.get('r')){setIcon();resultView();return}                    // emailed result links carry their own signed token
  if(KEY.length<30){crash();return}                      // no key, or a clearly damaged one: no network call at all
  $('#app').innerHTML='<div class="brk"><p class="mut">Loading…</p></div>';
  let kind;try{kind=await R('whichKey')}catch(e){$('#app').innerHTML='<div class="brk"><p class="mut">Could not reach the exam service. Check your connection and refresh.</p></div>';return}
  if(!kind){crash();return}                              // one wrong or missing character lands here
+ setIcon();
  STAFF=kind==='staff';
  if(STAFF)(TOK?staff():staffLoginView());else loginView();
 })();
