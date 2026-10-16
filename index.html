@@ -94,6 +94,25 @@ td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}tr:n
 @media(max-width:800px){.hero{padding:6px 16px 22px}.hero h1{font-size:27px}.stats{display:grid;grid-template-columns:1fr 1fr;width:100%}.stat{min-width:0;padding:12px}.stat b{font-size:28px}}
 .grid .card .row{justify-content:flex-start;margin-top:14px}
 .btn.sm{margin:0;max-width:none;overflow:visible}
+.sh{background:var(--navy);box-shadow:0 4px 0 var(--gold)}.sh img,.sh svg{width:58px;height:58px;object-fit:contain;border-radius:50%;padding:6px;background:#fff;box-shadow:0 0 0 3px rgba(198,161,91,.7)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:6px 0 20px}
+.stat{padding:16px 18px;border-radius:14px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh1);text-align:center}.stat b{display:block;font:700 36px/1.1 var(--serif);color:var(--navy)}.stat span{font-size:15px;color:var(--mut)}
+.hgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:18px}.hgrid .card{margin:0}.hgrid .span2{grid-column:1/-1}.hgrid h3{margin-bottom:10px}
+.hb{display:grid;grid-template-columns:minmax(120px,1.3fr) 3fr 52px;gap:14px;align-items:center;padding:7px 0}.hb .hl{font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hb .hl small{display:block;font-weight:400}.hb b{text-align:right;color:var(--navy)}
+.ht{height:12px;border-radius:99px;background:#E8EDF6;overflow:hidden}.ht i{display:block;height:100%;border-radius:99px;background:var(--navy2)}
+.dn-row{display:flex;gap:26px;align-items:center;flex-wrap:wrap}.donut{width:150px;height:150px;border-radius:50%;display:grid;place-items:center}.donut>div{width:98px;height:98px;border-radius:50%;background:#fff;display:grid;place-content:center;text-align:center}.donut b{font:700 30px/1 var(--serif);color:var(--navy)}
+.lgd{display:flex;align-items:center;gap:10px;padding:5px 0}.lgd i{width:14px;height:14px;border-radius:4px}.lgd b{margin-left:auto;padding-left:18px}
+.hist{display:flex;gap:12px;align-items:flex-end;height:180px;padding-top:6px}.hist>div{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px}.hist i{display:block;width:100%;max-width:56px;min-height:3px;border-radius:8px 8px 0 0;background:var(--gold)}.hist small{font-size:13px}
+@media(min-width:900px){
+#app.sa{display:grid;grid-template-columns:272px minmax(0,1fr);height:auto;min-height:100vh}
+.sh{grid-column:1;align-self:start;position:sticky;top:0;height:100vh;flex-direction:column;align-items:stretch;flex-wrap:nowrap;gap:6px;padding:30px 18px 22px;box-shadow:4px 0 0 var(--gold)}
+.sh img,.sh svg{width:88px;height:88px;margin:0 auto}
+.sh>div:nth-of-type(1){text-align:center;margin:8px 0 22px}.sh>div:nth-of-type(1) .sn{font-size:21px;line-height:1.2}
+.sh nav{flex:1;flex-direction:column;flex-wrap:nowrap;gap:4px}.sh nav button{width:100%;text-align:left;border-radius:12px;padding:13px 18px;font-size:17px}.sh nav button.on{background:var(--gold);color:var(--ink)}
+.sh>.row{flex-direction:column;align-items:stretch;gap:8px;border-top:1px solid rgba(255,255,255,.16);padding-top:16px}.sh>.row small{text-align:center;margin-bottom:4px}.sh>.row .btn{width:100%}
+main.sm{grid-column:2;width:100%;max-width:1180px;margin:0;padding:34px 44px 44px}
+}
+@media(max-width:620px){.hb{grid-template-columns:1fr 52px}.hb .ht{grid-column:1/-1;order:3}}
 </style></head>
 <body><div id="app"></div><div id="modal"></div>
 <script>
@@ -118,7 +137,7 @@ const FB='<svg viewBox="0 0 100 110" height="60" role="img" aria-label="Crest"><
 const logo=c=>`<img class="${c||''}" src="${LOGO}" alt="${SCHOOL} crest" onerror="this.outerHTML=FB">`;
 const lbrand=(t,x)=>`<aside class="lb"><div class="med">${logo('lbl')}</div><div class="lbn">${SCHOOL}</div><div class="lbt">${t}</div><p class="lbs">${x}</p></aside>`;
 const fmt=ms=>{ms=Math.max(0,Math.ceil(ms/1000));const h=Math.floor(ms/3600),m=Math.floor(ms%3600/60),s=ms%60;return(h?h+':':'')+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')};
-const shell=h=>{$('#app').innerHTML=h};
+const shell=h=>{const a=$('#app');a.className='';a.innerHTML=h};
 const modal=(h,wide)=>{$('#modal').innerHTML='<div class="ov"><div class="mb"'+(wide?' style="max-width:760px"':'')+'>'+h+'</div></div>'},closeM=()=>{$('#modal').innerHTML=''};
 function toast(t,ok){const e=document.createElement('div');e.className='toast'+(ok===true?'':' bad');if(ok===true)e.style.background='var(--ok)';e.textContent=t;document.body.appendChild(e);setTimeout(()=>e.remove(),ok===true?9000:5000)}
 const PT={reading:'Reading',listening:'Listening',writing:'Writing',grammar:'Grammar & Vocabulary',speaking:'Speaking (face to face)'};
@@ -186,7 +205,7 @@ async function finish(){S.live=false;clearInterval(tmr);
  catch(e){shell(`<div class="brk"><div class="card"><h2>We could not submit</h2><p class="err">${esc(e.message||e)}</p><button class="btn" onclick="finish()">Try again</button></div></div>`)}}
 
 /* ============ STAFF ============ */
-let D,tab='Submissions',dr=null,fo='',rt=0;
+let D,tab='Home',dr=null,fo='',rt=0;
 // Shows "Working…" on a button straight away, so every click gives instant feedback while the server answers.
 const busy=async(b,fn,txt)=>{if(b&&b.disabled)return;const t=b&&b.textContent;if(b){b.disabled=true;b.textContent=txt||'Working…'}try{return await fn()}finally{if(b&&b.isConnected){b.disabled=false;b.textContent=t}}};
 const warm=()=>{try{fetch(API_URL,{mode:'no-cors'}).catch(()=>{})}catch(e){}};
@@ -200,9 +219,36 @@ const tname=u=>(D.staff.find(s=>s.Username===u)||{}).Name||(u===D.me.user?D.me.n
 const inO=r=>!fo||ownerOf(r.Code)===fo;
 const exList=()=>D.exams.filter(e=>!fo||exOwn(e)===fo);
 const nameOf=r=>(D.cands.find(c=>c.Code==r.Code&&c.Username==r.Username)||{}).Name||r.Username;
-const rerender=()=>{({Submissions:tSubs,Exams:tExams,Candidates:tCands,Staff:tStaff}[tab])();heroStats()};
-const heroStats=()=>{const h=$('#hero');if(!h||!D)return;const n=D.subs.filter(r=>r.Status==='Submitted').length;
- h.innerHTML=`<div><h1>Welcome back, ${esc(String(D.me.name||'').split(' ')[0])}</h1><p>${adm()?'Manage every exam, teacher and result from one place.':'Your exams, students and results are all here.'}</p></div><div class="stats">${[['Exams',D.exams.length],['Students',D.cands.length],['Submissions',D.subs.length],['Awaiting marking',n]].map(([a,b])=>`<div class="stat"><b>${b}</b><span>${a}</span></div>`).join('')}</div>`};
+const rerender=()=>({Home:tHome,Submissions:tSubs,Exams:tExams,Candidates:tCands,Staff:tStaff}[tab])();
+// Home: overall results, classes, teachers and charts. Everything is worked out from the data already loaded in the browser.
+const maxOf=c=>D.questions.filter(q=>q.Code==c).reduce((a,q)=>a+(q.Points===''?1:+q.Points),0);
+const needsM=c=>D.questions.some(q=>q.Code==c&&KIND[q.Type]==='essay')||D.papers.some(p=>p.Code==c&&p.Type==='speaking');
+const pctOf=r=>{const m=maxOf(r.Code);return m?Math.min(100,Math.round(((+r.Auto||0)+(+r.Manual||0))/m*100)):null};
+const scored=r=>(r.Status!=='Submitted'||!needsM(r.Code))?pctOf(r):null;
+const avg=a=>a.length?Math.round(a.reduce((x,y)=>x+y,0)/a.length):null;
+const hb=(l,s,v)=>`<div class="hb"><span class="hl" title="${esc(l)}">${esc(l)}<small>${esc(s)}</small></span><div class="ht"><i style="width:${v==null?0:v}%"></i></div><b>${v==null?'–':v+'%'}</b></div>`;
+function tHome(){
+ const subs=D.subs.map((r,i)=>[r,i]).filter(([r])=>inO(r)),cands=D.cands.filter(inO),exams=exList();
+ const sc=subs.map(([r])=>scored(r)).filter(v=>v!=null),by=s=>subs.filter(([r])=>r.Status===s).length;
+ const nS=by('Submitted'),nG=by('Graded'),nR=by('Released'),tot=subs.length;
+ const exRows=exams.map(e=>hb(e.Title,cands.filter(c=>c.Code==e.Code).length+' students',avg(subs.filter(([r])=>r.Code==e.Code).map(([r])=>scored(r)).filter(v=>v!=null)))).join('');
+ const parts=[['Awaiting marking',nS,'#E2A93B'],['Graded',nG,'#3F6FB5'],['Released',nR,'#2E7D5B']];let acc=0;
+ const grad=tot?parts.map(([,n,c])=>{const a=acc/tot*100;acc+=n;return c+' '+a+'% '+acc/tot*100+'%'}).join(','):'#E6EAF2 0% 100%';
+ const bk=[0,0,0,0,0];sc.forEach(v=>bk[Math.min(4,Math.floor(v/20))]++);const bm=Math.max(1,...bk);
+ const cm={};cands.forEach(c=>{const k=String(c.Class||'').trim()||'No class';(cm[k]=cm[k]||[]).push(c)});
+ const cls=Object.keys(cm).map(k=>{const set=new Set(cm[k].map(c=>c.Code+'|'+c.Username)),ss=subs.filter(([r])=>set.has(r.Code+'|'+r.Username));return{k,n:cm[k].length,s:ss.length,a:avg(ss.map(([r])=>scored(r)).filter(v=>v!=null))}}).sort((x,y)=>y.n-x.n);
+ const tr=adm()?D.staff.filter(s=>!fo||s.Username===fo).map(s=>{const ss=D.subs.filter(r=>ownerOf(r.Code)===s.Username);return{n:s.Name,e:D.exams.filter(e=>exOwn(e)===s.Username).length,c:D.cands.filter(c=>ownerOf(c.Code)===s.Username).length,s:ss.length,w:ss.filter(r=>r.Status==='Submitted').length}}):[];
+ const wait=subs.filter(([r])=>r.Status==='Submitted').sort((a,b)=>String(b[0].SubmittedAt).localeCompare(String(a[0].SubmittedAt))).slice(0,6);
+ const tile=(a,b)=>`<div class="stat"><b>${b}</b><span>${a}</span></div>`,none='<p class="mut">No data yet.</p>';
+ $('#sp').innerHTML=`<div class="bar"><div><h1>Welcome back, ${esc(String(D.me.name||'').split(' ')[0])}</h1><p class="mut" style="margin:6px 0 0;font-size:18px">${adm()?'Manage every exam, teacher and result from one place.':'Your exams, students and results are all here.'}</p></div></div>${fBar()}
+ <div class="stats">${tile('Exams',exams.length)+tile('Students',cands.length)+tile('Submissions',tot)+tile('Awaiting marking',nS)+tile('Average score',avg(sc)==null?'–':avg(sc)+'%')}</div>
+ <div class="hgrid"><div class="card span2"><h3>Average score by exam</h3><p class="mut" style="margin:2px 0 10px">Marked submissions only.</p>${exRows||none}</div>
+ <div class="card"><h3>Submission status</h3><div class="dn-row"><div class="donut" style="background:conic-gradient(${grad})"><div><b>${tot}</b><small>total</small></div></div><div>${parts.map(([l,n,c])=>`<div class="lgd"><i style="background:${c}"></i>${l}<b>${n}</b></div>`).join('')}</div></div></div>
+ <div class="card"><h3>Score distribution</h3><div class="hist">${bk.map((n,i)=>`<div><b>${n}</b><i style="height:${n/bm*100}px"></i><small>${i*20}–${i==4?100:i*20+19}%</small></div>`).join('')}</div></div>
+ <div class="card span2"><h3>Classes</h3><div class="tw">${cls.length?`<table><tr><th>Class</th><th>Students</th><th>Submitted</th><th style="width:34%">Average score</th></tr>${cls.map(c=>`<tr><td>${esc(c.k)}</td><td>${c.n}</td><td>${c.s}</td><td><div class="hb" style="grid-template-columns:1fr 46px"><div class="ht"><i style="width:${c.a||0}%"></i></div><b>${c.a==null?'–':c.a+'%'}</b></div></td></tr>`).join('')}</table>`:none}</div></div>
+ ${adm()?`<div class="card span2"><h3>Teachers</h3><div class="tw">${tr.length?`<table><tr><th>Teacher</th><th>Exams</th><th>Students</th><th>Submissions</th><th>Awaiting marking</th></tr>${tr.map(t=>`<tr><td>${esc(t.n)}</td><td>${t.e}</td><td>${t.c}</td><td>${t.s}</td><td>${t.w}</td></tr>`).join('')}</table>`:none}</div></div>`:''}
+ <div class="card span2"><h3>Needs marking</h3>${wait.length?wait.map(([r,i])=>`<div class="gq row" style="justify-content:space-between"><span><b>${esc(nameOf(r))}</b> <span class="mut">· ${esc(r.Code)}${isNaN(new Date(r.SubmittedAt))?'':' · '+new Date(r.SubmittedAt).toLocaleDateString()}</span></span><button class="btn sm gold" onclick="gr(${i})">Mark and comment</button></div>`).join(''):'<p class="mut">Nothing is waiting. Well done!</p>'}</div></div>`}
+
 const exSel=id=>exList().length?`<select id="${id}">${exList().map(e=>`<option value="${esc(e.Code)}">${esc(e.Code)} – ${esc(e.Title)}</option>`).join('')}</select>`:`<p class="err">Create an exam first.</p><input id="${id}" style="display:none">`;
 // Administrators can look at one teacher's classes at a time, or at everyone's.
 const fBar=()=>adm()?`<div class="row" style="margin-bottom:14px"><label for="fo" style="margin:0">Teacher</label><select id="fo" style="width:auto;min-width:240px" onchange="fo=this.value;rerender()"><option value="">All teachers</option>${D.staff.map(s=>`<option value="${esc(s.Username)}" ${fo===s.Username?'selected':''}>${esc(s.Name)} (${esc(s.Username)})</option>`).join('')}</select></div>`:'';
@@ -221,16 +267,16 @@ function pwModal(forced,cur){
  <div class="row"><button class="btn gold" id="ps">Save password</button>${forced?'':'<button class="btn ghost" onclick="closeM()">Cancel</button>'}</div>`);
  $('#ps').onclick=async()=>{const a=forced?cur:$('#p0').value,b=$('#p1').value;if(b!==$('#p2').value)return $('#pe').textContent='The two new passwords do not match.';
   try{await R('changePassword',TOK,a,b);closeM();toast('Password changed.',true);if(forced)staff()}catch(e){$('#pe').textContent=String(e.message||e)}}}
-async function out(){try{await R('staffLogout',TOK)}catch(e){}clearInterval(rt);rt=0;setTok('');fo='';tab='Submissions';staffLoginView()}
+async function out(){try{await R('staffLogout',TOK)}catch(e){}clearInterval(rt);rt=0;setTok('');fo='';tab='Home';staffLoginView()}
 async function staff(){try{D=await R('staffData',TOK)}catch(e){const m=String(e.message||e);if(/expired|password first/i.test(m)){setTok('');return staffLoginView(/expired/i.test(m)?'Your session ended. Please sign in again.':'')}return shell(`<div class="brk"><div class="card"><h2>Access denied</h2><p class="err">${esc(m)}</p></div></div>`)}
  drawStaff()}
 // Everything below works from the data already in the browser, so switching tabs costs no waiting.
 function drawStaff(){
- const T=['Submissions','Exams','Candidates'].concat(adm()?['Staff']:[]);
- shell(`<div class="top"><header class="sh">${logo()}<div><div class="sn">${SCHOOL}</div><small style="color:var(--gold2)">${adm()?'Administration':'Teacher room'}</small></div><nav>${T.map(t=>`<button class="${t===tab?'on':''}" onclick="goTab('${t}')">${t}</button>`).join('')}</nav><div class="row"><small style="color:var(--gold2)">${esc(D.me.name)}</small><button class="btn sm ghost" onclick="refresh(false,this)">Refresh</button><button class="btn sm gold" onclick="pwModal(false)">Password</button><button class="btn sm ghost" onclick="out()">Sign out</button></div></header><section class="hero" id="hero"></section></div><main class="sm" id="sp"></main>`);
- if(!T.includes(tab))tab='Submissions';rerender();
+ const T=['Home','Submissions','Exams','Candidates'].concat(adm()?['Staff']:[]);
+ shell(`<header class="sh">${logo()}<div><div class="sn">${SCHOOL}</div><small style="color:var(--gold2)">${adm()?'Administration':'Teacher room'}</small></div><nav>${T.map(t=>`<button class="${t===tab?'on':''}" onclick="goTab('${t}')">${t}</button>`).join('')}</nav><div class="row"><small style="color:var(--gold2)">${esc(D.me.name)}</small><button class="btn sm ghost" onclick="refresh(false,this)">Refresh</button><button class="btn sm gold" onclick="pwModal(false)">Password</button><button class="btn sm ghost" onclick="out()">Sign out</button></div></header><main class="sm" id="sp"></main>`);$('#app').className='sa';
+ if(!T.includes(tab))tab='Home';rerender();
  // New submissions appear by themselves: a quiet check once a minute while the Submissions tab is open.
- if(!rt)rt=setInterval(()=>{if(TOK&&D&&tab==='Submissions'&&!dr&&!document.hidden&&!$('#modal').innerHTML)refresh(true)},60000)}
+ if(!rt)rt=setInterval(()=>{if(TOK&&D&&(tab==='Submissions'||tab==='Home')&&!dr&&!document.hidden&&!$('#modal').innerHTML)refresh(true)},60000)}
 const goTab=t=>{tab=t;dr=null;drawStaff()};
 async function refresh(quiet,b){if(b){b.disabled=true;b.textContent='Refreshing…'}
  try{const d=await R('staffData',TOK),changed=!quiet||JSON.stringify(d)!==JSON.stringify(D);D=d;if(changed&&!dr)rerender()}
