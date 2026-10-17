@@ -152,6 +152,41 @@ body:has(#app>.hall){background:linear-gradient(rgba(6,20,44,.3),rgba(6,20,44,.5
 @keyframes fxwave{0%,60%,100%{transform:rotate(0)}10%{transform:rotate(16deg)}20%{transform:rotate(-8deg)}30%{transform:rotate(16deg)}40%{transform:rotate(-4deg)}50%{transform:rotate(10deg)}}
 @media(prefers-reduced-motion:reduce){.fx,.fx *,.fx *::after{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}}
 @media print{.fx{display:none}}
+
+/* ---- Classes tab ---- */
+.tag.st-a{background:#DDF3E4;color:#1D6B3A}.tag.st-c{background:#E4E8EF;color:#4A5568}
+details>summary{list-style:none}details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"\25B8";display:inline-block;margin-right:8px;transition:transform .15s}details[open]>summary::before{transform:rotate(90deg)}
+@media(min-width:900px){.fg3{grid-template-columns:repeat(3,1fr)}}@media(min-width:1250px){.fg5{grid-template-columns:repeat(5,1fr)}}
+
+/* ---- Class hall, registration, student portal ---- */
+.ph{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 28px;color:#fff;background:linear-gradient(rgba(6,20,44,.22),rgba(6,20,44,.5)),var(--marble) 60% 40%/cover no-repeat #0C1E42;box-shadow:0 5px 0 var(--gold)}
+.ph .phl{height:54px;width:54px;object-fit:contain;background:#fff;border-radius:50%;padding:5px;box-shadow:0 0 0 3px rgba(198,161,91,.7)}
+.ph .pn b{display:block;font-size:20px;line-height:1.2}.ph .pn small{color:var(--gold2);letter-spacing:.5px}.ph .sp{flex:1}.ph .who{color:var(--gold2)}
+.ph .phb{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}.ph .phb:hover{background:rgba(255,255,255,.12)}
+.pm{max-width:1120px;margin:0 auto;padding:28px 20px 70px}
+.phero{text-align:center;margin:6px 0 20px}.phero h1{margin:0 0 6px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:24px}
+.chip{padding:9px 18px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font:inherit;color:var(--navy);cursor:pointer;font-weight:700}.chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.ccard{display:flex;flex-direction:column;gap:10px;text-align:left;padding:22px;background:linear-gradient(180deg,#fff,var(--tint));border:1px solid var(--line);border-top:5px solid var(--gold);border-radius:16px;box-shadow:0 6px 18px rgba(18,40,77,.08);cursor:pointer;font:inherit;color:var(--ink);transition:transform .15s,box-shadow .15s}
+.ccard:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 12px 28px rgba(18,40,77,.16)}
+.ccard h3{margin:0;font-size:20px}.ccard dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px}.ccard dt{color:var(--mut)}.ccard dd{margin:0;font-weight:700;text-align:right}
+.cbtn{margin-top:auto;text-align:center;padding:11px;border-radius:10px;background:var(--navy);color:#fff;font-weight:700}
+.ccard:disabled{cursor:not-allowed;opacity:.7}.ccard:disabled .cbtn{background:#8A94A6}
+.rgrid{display:grid;grid-template-columns:1.5fr 1fr;gap:22px;align-items:start}
+.seg2{display:flex;margin-bottom:18px;border:1.5px solid var(--navy);border-radius:12px;overflow:hidden}.seg2 button{flex:1;padding:11px;border:0;border-radius:0;background:#fff;color:var(--navy);font:inherit;font-weight:700;cursor:pointer;box-shadow:none}.seg2 button.on{background:var(--navy);color:#fff}
+.kv{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 18px}.kv dt{color:var(--mut)}.kv dd{margin:0;font-weight:700;text-align:right}.kv.big dd{text-align:left}
+.found{background:#FBF9F4;border:1px solid #E6DFCF;border-left:4px solid var(--gold);border-radius:8px;padding:14px 18px;margin:16px 0}
+.ok{color:var(--ok);font-weight:700}.okc{width:64px;height:64px;border-radius:50%;background:#DDF3E4;color:#1D6B3A;font-size:34px;display:grid;place-items:center;margin:0 auto}
+.ptabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;border-bottom:1.5px solid var(--line)}.ptabs button{background:transparent;border:0;border-bottom:3px solid transparent;border-radius:0;padding:10px 16px;font:inherit;font-weight:700;color:var(--mut);cursor:pointer;box-shadow:none}.ptabs button.on{color:var(--navy);border-color:var(--gold)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:18px}.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;color:var(--mut)}.stat b{display:block;font-size:30px;color:var(--navy);line-height:1.15}
+.prog{height:10px;border-radius:999px;background:#E4E8EF;overflow:hidden}.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),#E8D29A)}
+.item .bar{align-items:flex-start}
+.req{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap;padding:12px 0;border-top:1px solid var(--line)}
+.aslist{max-height:260px;overflow:auto;border:1px solid var(--line);border-radius:10px;margin-top:8px}.chk2{display:flex;gap:10px;align-items:center;padding:9px 14px;border-bottom:1px solid var(--line);cursor:pointer}.chk2 input{width:auto;margin:0}
+@media(max-width:860px){.rgrid{grid-template-columns:1fr}.rside{order:-1}.ph{padding:12px 16px}.pm{padding:20px 14px 60px}}
+.ccard .tag{align-self:flex-start}a.btn{text-decoration:none;display:inline-block}#stulist td select{min-width:150px}
 </style></head>
 <body><div id="app"></div><div id="modal"></div>
 <script>
@@ -196,7 +231,7 @@ function loginView(){
   S=r;S.off=r.serverNow-Date.now();wait()}catch(e){$('#err').textContent=String(e.message||e)}};
  $('#go').onclick=go;$('#pw').onkeydown=e=>{if(e.key==='Enter')go()}}
 function wait(){
- shell(`<div class="hall">${logo()}<div class="sn">${SCHOOL}</div><h1>${esc(S.exam.title)}</h1><p>Welcome, <b>${esc(S.me.name)}</b>. The exam hall opens on<br><b>${new Date(S.exam.start).toLocaleString()}</b></p><div class="card"><div class="cd" id="cd">--:--</div><small>Stay on this page. The rules appear 5 minutes before the start.</small></div></div>`);
+ shell(`<div class="hall">${logo()}<div class="sn">${SCHOOL}</div><h1>${esc(S.exam.title)}</h1>${S.exam.hw?`<p>Welcome, <b>${esc(S.me.name)}</b>. This homework is open until<br><b>${new Date(S.exam.hw.deadline).toLocaleString()}</b></p>`:`<p>Welcome, <b>${esc(S.me.name)}</b>. The exam hall opens on<br><b>${new Date(S.exam.start).toLocaleString()}</b></p>`}<div class="card"><div class="cd" id="cd">--:--</div><small>Stay on this page. The rules appear 5 minutes before the start.</small></div></div>`);
  clearInterval(wt);wt=setInterval(()=>{const left=S.exam.start-(Date.now()+S.off);$('#cd').textContent=left>0?fmt(left):'Open';if(left<=0&&!PP[0])warmPaper(0);
   if(left<=300000&&!$('#agree'))rules();const m=$('#mc');if(m){m.textContent=left>0?fmt(left):'Open';$('#ml').textContent=left>0?'The Enter Exam Hall button unlocks when this reaches zero.':'You may enter now. Tick the box and click Enter Exam Hall.'}const b=$('#enter');if(b)b.disabled=!($('#agree').checked&&left<=0)},500)}
 function rules(){const br=S.exam.papers.slice(0,-1).map((p,i)=>p.brk?`After paper ${i+1}: ${p.brk}-minute break`:`After paper ${i+1}: no break`);
@@ -208,7 +243,8 @@ function arm(){const v=()=>{if(!S.live||Date.now()-lastV<1500)return;lastV=Date.
  else modal(`<h3>Warning ${viol} of 2</h3><p>You left the exam window. ${viol===1?'You have one warning left.':'This was your last warning. Leaving again submits your exam immediately.'}</p><button class="btn w" onclick="closeM()">Return to exam</button>`)};
  document.addEventListener('visibilitychange',()=>document.hidden&&v());window.addEventListener('blur',v)}
 const head=r=>`<header class="xh"><div>${logo('xlogo')}<details class="inf"><summary>My details</summary><dl><dt>Name</dt><dd>${esc(S.me.name)}</dd><dt>Class</dt><dd>${esc(S.me.cls)}</dd><dt>Exam code</dt><dd>${esc(S.me.code)}</dd><dt>Email</dt><dd>${esc(S.me.email)}</dd><dt>Date</dt><dd>${new Date(S.exam.start).toLocaleString()}</dd></dl></details></div><div class="xt"><div class="sn">${SCHOOL}</div><h2>${esc(S.exam.title)}</h2></div><div class="xr">${r||''}</div></header>`;
-async function open(i){pi=i;try{papers[i]=papers[i]||await getP(i)}catch(e){return toast(e.message||e)}S.live=true;render();timer(S.exam.papers[i].minutes*60,()=>{closeM();next()})}
+async function open(i){pi=i;try{papers[i]=papers[i]||await getP(i)}catch(e){return toast(e.message||e)}S.live=true;render();S.exam.hw?hwTimer(()=>{closeM();next()}):timer(S.exam.papers[i].minutes*60,()=>{closeM();next()})}
+function hwTimer(done){clearInterval(tmr);const dl=S.exam.hw.deadline,tick=()=>{const e=$('#tm');if(e){e.textContent='Due '+new Date(dl).toLocaleString([],{dateStyle:'medium',timeStyle:'short'});e.classList.remove('low')}if(Date.now()+S.off>=dl){clearInterval(tmr);done()}};tick();tmr=setInterval(tick,15000)}
 function timer(sec,done){clearInterval(tmr);let t=sec;const tick=()=>{const e=$('#tm');if(e){e.textContent=fmt(t*1000);e.classList.toggle('low',t<300)}if(t--<=0){clearInterval(tmr);done()}};tick();tmr=setInterval(tick,1000)}
 const KIND=Object.fromEntries(Object.entries(QT).map(([k,v])=>[k,v[1]]));
 const qHtml=(q,i)=>{const k=KIND[q.type]||'text',v=String(A[q.id]||''),o=q.options||[];let x;
@@ -256,9 +292,9 @@ const exOwn=e=>String(e.Owner||'').toLowerCase();
 const ownerOf=c=>exOwn(D.exams.find(e=>e.Code==c)||{});
 const tname=u=>(D.staff.find(s=>s.Username===u)||{}).Name||(u===D.me.user?D.me.name:u)||'';
 const inO=r=>!fo||ownerOf(r.Code)===fo;
-const exList=()=>D.exams.filter(e=>!fo||exOwn(e)===fo);
+const exList=()=>D.exams.filter(e=>e.Kind!=='homework'&&(!fo||exOwn(e)===fo));
 const nameOf=r=>(D.cands.find(c=>c.Code==r.Code&&c.Username==r.Username)||{}).Name||r.Username;
-const rerender=()=>({Home:tHome,Submissions:tSubs,Exams:tExams,Candidates:tCands,Staff:tStaff}[tab])();
+const rerender=()=>({Home:tHome,Submissions:tSubs,Exams:tExams,Candidates:tCands,Homework:tHomework,Classes:tClasses,Staff:tStaff}[tab])();
 // Home: overall results, classes, teachers and charts. Everything is worked out from the data already loaded in the browser.
 const maxOf=c=>D.questions.filter(q=>q.Code==c).reduce((a,q)=>a+(q.Points===''?1:+q.Points),0);
 const needsM=c=>D.questions.some(q=>q.Code==c&&KIND[q.Type]==='essay')||D.papers.some(p=>p.Code==c&&p.Type==='speaking');
@@ -328,13 +364,13 @@ function pwModal(forced,cur){
   try{await R('changePassword',TOK,a,b);closeM();toast('Password changed.',true);if(forced)staff()}catch(e){$('#pe').textContent=String(e.message||e)}}}
 async function out(){const nm=D&&D.me?D.me.name:'';const shown=fxShow('Logging out');
  try{await Promise.all([R('staffLogout',TOK).catch(()=>{}),shown,fxDelay(800)])}catch(e){}
- clearInterval(rt);rt=0;setTok('');fo='';tab='Home';
+ clearInterval(rt);rt=0;setTok('');fo='';tab='Home';CL=null;SM=null;cview='students';
  await fxGreet('out',nm);staffLoginView();fxHide()}   // the room fades out and the sign-in screen is revealed
 async function staff(){try{D=await R('staffData',TOK)}catch(e){const m=String(e.message||e);if(/expired|password first/i.test(m)){setTok('');return staffLoginView(/expired/i.test(m)?'Your session ended. Please sign in again.':'')}return shell(`<div class="brk"><div class="card"><h2>Access denied</h2><p class="err">${esc(m)}</p></div></div>`)}
  drawStaff()}
 // Everything below works from the data already in the browser, so switching tabs costs no waiting.
 function drawStaff(){
- const T=['Home','Submissions','Exams','Candidates'].concat(adm()?['Staff']:[]);
+ const T=['Home','Submissions','Exams','Homework'].concat(adm()?['Candidates','Classes','Staff']:[]);
  shell(`<header class="sh">${logo()}<div><div class="sn">${SCHOOL}</div><small style="color:var(--gold2)">${adm()?'Administration':'Teacher room'}</small></div><nav>${T.map(t=>`<button class="${t===tab?'on':''}" onclick="goTab('${t}')">${t}</button>`).join('')}</nav><div class="row"><small style="color:var(--gold2)">${esc(D.me.name)}</small><button class="btn sm ghost" onclick="refresh(false,this)">Refresh</button><button class="btn sm gold" onclick="pwModal(false)">Password</button><button class="btn sm ghost" onclick="out()">Sign out</button></div></header><main class="sm" id="sp"></main>`);$('#app').className='sa';
  if(!T.includes(tab))tab='Home';rerender();
  // New submissions appear by themselves: a quiet check once a minute while the Submissions tab is open.
@@ -349,21 +385,21 @@ function tSubs(){const L2=D.subs.map((r,i)=>[r,i]).filter(([r])=>inO(r));
 function tExams(){
  if(dr)return edView();
  const L2=exList();
- $('#sp').innerHTML=`<div class="bar"><h2>Exams</h2><button class="btn" onclick="newExam()">Create exam</button></div>${fBar()}`+(L2.length?`<div class="grid">${L2.map(e=>{const n=D.questions.filter(q=>q.Code==e.Code).length,pc=D.papers.filter(p=>p.Code==e.Code).length||String(e.PaperMinutes).split(',').length;return`<div class="card"><h3>${esc(e.Title)}</h3><p><span class="tag">${esc(e.Code)}</span></p><p class="mut">${new Date(e.Start).toLocaleString()}</p>${adm()?`<p class="mut">Teacher: <b style="color:var(--ink)">${esc(tname(exOwn(e)))||'Not assigned'}</b></p>`:''}<p>${pc} paper(s), ${n} question(s)</p><div class="row"><button class="btn sm" onclick="editExam('${esc(e.Code)}')">Edit</button><button class="btn sm ghost" onclick="delExam('${esc(e.Code)}',this)">Delete</button></div></div>`}).join('')}</div>`:'<p class="mut">No exams yet. Choose Create exam to build your first one.</p>')}
+ $('#sp').innerHTML=`<div class="bar"><h2>Exams</h2><button class="btn" onclick="newExam()">Create exam</button></div>${fBar()}`+(L2.length?`<div class="grid">${L2.map(e=>{const n=D.questions.filter(q=>q.Code==e.Code).length,pc=D.papers.filter(p=>p.Code==e.Code).length||String(e.PaperMinutes).split(',').length;return`<div class="card"><h3>${esc(e.Title)}</h3><p><span class="tag">${esc(e.Code)}</span></p><p class="mut">${new Date(e.Start).toLocaleString()}</p>${adm()?`<p class="mut">Teacher: <b style="color:var(--ink)">${esc(tname(exOwn(e)))||'Not assigned'}</b></p>`:''}<p>${pc} paper(s), ${n} question(s)</p><div class="row"><button class="btn sm" onclick="editExam('${esc(e.Code)}')">Edit</button><button class="btn sm gold" onclick="assignModal('${esc(e.Code)}')">Assign</button><button class="btn sm ghost" onclick="delExam('${esc(e.Code)}',this)">Delete</button></div></div>`}).join('')}</div>`:'<p class="mut">No exams yet. Choose Create exam to build your first one.</p>')}
 const newExam=()=>{dr={id:'',title:'',start:'',owner:fo||D.me.user,papers:[]};edView()};
 function editExam(code){const e=D.exams.find(x=>x.Code==code),ps=D.papers.filter(p=>p.Code==code).sort((a,b)=>a.Paper-b.Paper);
  const qsOf=n=>D.questions.filter(q=>q.Code==code&&q.Paper==n).map(q=>({id:q.Id,type:q.Type,prompt:q.Prompt,options:q.Options?String(q.Options).split('|'):[],answer:q.Answer,points:q.Points===''?1:+q.Points,image:q.Image||''}));
- dr={id:code,title:e.Title,start:local(e.Start),owner:exOwn(e)||D.me.user,papers:ps.length?ps.map(p=>({name:p.Name,type:p.Type,minutes:+p.Minutes,breakMin:+p.BreakMin||0,material:p.Material,image:p.Image,audio:p.Audio,questions:qsOf(p.Paper)})):String(e.PaperMinutes).split(',').map((m,i)=>({name:'Paper '+(i+1),type:'reading',minutes:+m,breakMin:+e.BreakMin||0,material:'',image:'',audio:'',questions:qsOf(i+1)}))};edView()}
+ dr={id:code,kind:e.Kind||'',deadline:e.Deadline?local(e.Deadline):'',title:e.Title,start:local(e.Start),owner:exOwn(e)||D.me.user,papers:ps.length?ps.map(p=>({name:p.Name,type:p.Type,minutes:+p.Minutes,breakMin:+p.BreakMin||0,material:p.Material,image:p.Image,audio:p.Audio,questions:qsOf(p.Paper)})):String(e.PaperMinutes).split(',').map((m,i)=>({name:'Paper '+(i+1),type:'reading',minutes:+m,breakMin:+e.BreakMin||0,material:'',image:'',audio:'',questions:qsOf(i+1)}))};edView()}
 const delExam=(c,b)=>{if(!confirm('Delete this exam and its questions? Past submissions are kept.'))return;return busy(b,async()=>{try{D=await R('deleteExam',TOK,c);rerender()}catch(e){toast(e.message||e)}},'Deleting…')};
 const nid=()=>'q'+Math.random().toString(36).slice(2,8);
 function edView(){const d=dr,sp=$('#sp'),y=sp.scrollTop;
- sp.innerHTML=`<div class="bar"><h2>${d.id?'Edit exam':'Create exam'} ${d.id?`<span class="tag">${esc(d.id)}</span>`:''}</h2><div class="row"><button class="btn ghost" onclick="dr=null;tExams()">Cancel</button><button class="btn" onclick="saveExam(this)">Save exam</button></div></div>
- <div class="card fg"><div><label>Exam title</label><input data-b="title" value="${esc(d.title)}" placeholder="e.g. IELTS Academic Mock Test 1"></div><div><label>Date and time</label><input type="datetime-local" data-b="start" value="${d.start}"></div>${adm()?`<div><label>Teacher in charge</label><select data-b="owner">${D.staff.map(s=>`<option value="${esc(s.Username)}" ${d.owner===s.Username?'selected':''}>${esc(s.Name)} (${esc(s.Username)})</option>`).join('')}</select></div>`:''}</div>
+ sp.innerHTML=`<div class="bar"><h2>${d.id?'Edit':'Create'} ${d.kind==='homework'?'homework':'exam'} ${d.id?`<span class="tag">${esc(d.id)}</span>`:''}</h2><div class="row"><button class="btn ghost" onclick="dr=null;rerender()">Cancel</button><button class="btn" onclick="saveExam(this)">Save exam</button></div></div>
+ <div class="card fg"><div><label>${d.kind==='homework'?'Homework':'Exam'} title</label><input data-b="title" value="${esc(d.title)}" placeholder="e.g. IELTS Academic Mock Test 1"></div>${d.kind==='homework'?`<div><label>Deadline</label><input type="datetime-local" data-b="deadline" value="${d.deadline||''}"></div>`:`<div><label>Date and time</label><input type="datetime-local" data-b="start" value="${d.start}"></div>`}${adm()?`<div><label>Teacher in charge</label><select data-b="owner">${D.staff.map(s=>`<option value="${esc(s.Username)}" ${d.owner===s.Username?'selected':''}>${esc(s.Name)} (${esc(s.Username)})</option>`).join('')}</select></div>`:''}</div>
  ${d.papers.map(paperEd).join('')}<button class="btn gold" onclick="dr.papers.push({name:'Paper '+(dr.papers.length+1),type:'reading',minutes:60,breakMin:0,material:'',image:'',audio:'',questions:[]});edView()">Add paper</button>`;sp.scrollTop=y}
 function paperEd(p,i){const sp=p.type==='speaking',b=`papers.${i}.`;
  return`<div class="card"><div class="bar"><h3>Paper ${i+1}</h3><button class="btn sm ghost" onclick="dr.papers.splice(${i},1);edView()">Remove paper</button></div>
  <div class="fg"><div><label>Paper name</label><input data-b="${b}name" value="${esc(p.name)}"></div><div><label>Section type</label><select data-b="${b}type" data-rr="1">${Object.keys(PT).map(k=>`<option value="${k}" ${p.type===k?'selected':''}>${PT[k]}</option>`).join('')}</select></div>
- ${sp?'':`<div><label>Time for this paper</label><select data-n="1" data-b="${b}minutes">${durOpts(p.minutes)}</select></div><div><label>Break after this paper</label><select data-n="1" data-b="${b}breakMin">${brkOpts(p.breakMin)}</select></div>`}</div>
+ ${sp||dr.kind==='homework'?'':`<div><label>Time for this paper</label><select data-n="1" data-b="${b}minutes">${durOpts(p.minutes)}</select></div><div><label>Break after this paper</label><select data-n="1" data-b="${b}breakMin">${brkOpts(p.breakMin)}</select></div>`}</div>
  ${sp?'<p class="mut">Speaking is taken face to face. Enter the examiner\'s score and comments under Submissions, Mark.</p>':`
  ${p.type==='listening'?`<label>Audio (Google Drive link or file ID, plays once)</label><input data-b="${b}audio" value="${esc(p.audio||'')}">`:''}
  <label>${p.type==='reading'?'Reading text (shown on the left screen)':p.type==='writing'?'Writing topic or task (shown at the top)':'Instructions or passage (optional)'}</label><textarea rows="5" data-b="${b}material">${esc(p.material||'')}</textarea>
@@ -383,16 +419,265 @@ const setP=(o,p,v)=>{const a=p.split('.');for(let i=0;i<a.length-1;i++)o=o[a[i]]
 const setB=t=>{let v=t.value;if(t.dataset.n)v=Number(v)||0;if(t.dataset.arr)v=v.split('\n');setP(dr,t.dataset.b,v)};
 document.addEventListener('input',e=>{const t=e.target;if(dr&&t.dataset&&t.dataset.b&&!t.dataset.rr)setB(t)});
 document.addEventListener('change',e=>{const t=e.target;if(dr&&t.dataset&&t.dataset.b){setB(t);if(t.dataset.rr){const m=t.dataset.b.match(/^papers\.(\d+)\.type$/);if(m&&t.value==='speaking')dr.papers[m[1]].questions=[];edView()}}});
-async function saveExam(b){const d=dr;if(!d.title.trim())return toast('Add an exam title.');if(!d.start)return toast('Choose the date and time.');if(!d.papers.length)return toast('Add at least one paper.');
+async function saveExam(b){const d=dr;if(!d.title.trim())return toast('Add an exam title.');if(d.kind==='homework'){if(!d.deadline)return toast('Choose the deadline.')}else if(!d.start)return toast('Choose the date and time.');if(!d.papers.length)return toast('Add at least one paper.');
  for(let i=0;i<d.papers.length;i++){const p=d.papers[i];if(p.type==='speaking')continue;if(!p.questions.length)return toast(`Paper ${i+1} has no questions.`);
   for(let j=0;j<p.questions.length;j++){const q=p.questions[j];if(!q.prompt.trim())return toast(`Paper ${i+1}, question ${j+1} needs a question text.`);if(KIND[q.type]!=='essay'&&!String(q.answer||'').trim())return toast(`Paper ${i+1}, question ${j+1} needs a correct answer.`);if(['choice','multi','select'].includes(KIND[q.type])&&(q.options||[]).filter(x=>x.trim()).length<2)return toast(`Paper ${i+1}, question ${j+1} needs at least two options.`)}}
- const e=JSON.parse(JSON.stringify(d));e.title=e.title.trim();e.start=new Date(d.start).toISOString();
+ const e=JSON.parse(JSON.stringify(d));e.title=e.title.trim();e.start=d.start?new Date(d.start).toISOString():'';e.deadline=d.deadline?new Date(d.deadline).toISOString():'';
  e.papers.forEach(p=>p.questions.forEach(q=>{q.options=(q.options||[]).map(z=>z.trim()).filter(Boolean)}));
  if(b){b.disabled=true;b.textContent='Saving…'}
  try{const r=await R('saveExam',TOK,e);D=r.data;dr=null;rerender();toast('Exam saved. Exam code: '+r.code,true)}catch(er){if(b){b.disabled=false;b.textContent='Save exam'}toast(er.message||er)}}
-function tCands(){const L2=D.cands.filter(inO);
+function tCands0(){const L2=D.cands.filter(inO);
  $('#sp').innerHTML=`<div class="bar"><h2>Candidates</h2></div>${fBar()}<div class="card"><h3 style="margin-bottom:4px">Register a student</h3><p class="mut" style="margin:0 0 6px">Choose the exam, then add the student's details. A username and passcode are created automatically.</p><div class="fg"><div><label>Exam</label>${exSel('rc')}</div><div><label>Full name</label><input id="rn"></div><div><label>Class</label><input id="rl"></div><div><label>Email</label><input id="re"></div></div><button class="btn" style="margin-top:14px" onclick="reg(this)">Register student</button></div>
  <div class="card tw"><table><tr><th>Exam</th>${adm()?'<th>Teacher</th>':''}<th>Username</th><th>Passcode</th><th>Name</th><th>Class</th><th>Email</th><th></th></tr>${L2.map(c=>`<tr><td>${esc(c.Code)}</td>${adm()?`<td>${esc(tname(ownerOf(c.Code)))}</td>`:''}<td><b>${esc(c.Username)}</b></td><td><b>${esc(c.Passcode)}</b></td><td>${esc(c.Name)}</td><td>${esc(c.Class)}</td><td>${esc(c.Email)}</td><td><button class="btn sm ghost" onclick="lnk('${esc(c.Code)}','${esc(c.Username)}',this)">Email login</button></td></tr>`).join('')||`<tr><td colspan="${adm()?8:7}" class="mut">No students registered yet.</td></tr>`}</table></div>`}
+/* ================= Classes tab (administrators only) ================= */
+let CL=null,cf={id:'',type:'',status:'',from:'',to:''};
+const CUR='$';   // change this one symbol if fees are not in dollars
+const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const fd=s=>{const m=String(s||'').match(/^(\d{4})-(\d\d)-(\d\d)/);return m?m[3]+'/'+m[2]+'/'+m[1]:esc(s||'')};
+const money=n=>CUR+(+n).toLocaleString('en-US',{maximumFractionDigits:2});
+const clErr=e=>{const m=String(e.message||e);if(/expired|password first/i.test(m)){setTok('');staffLoginView('Your session ended. Please sign in again.')}else toast(m)};
+const stTag=s=>`<span class="tag st-${s==='Accepting'?'a':s==='Full'?'f':'c'}">${esc(s)}</span>`;
+const classFields=(p,v)=>{v=v||{};return`<div><label for="${p}n">Class name</label><input id="${p}n" value="${esc(v.Name)}"></div>
+ <div><label for="${p}t">Class type</label><select id="${p}t"><option value="">Choose a type…</option>${CL.types.map(t=>`<option ${v.Type===t?'selected':''}>${esc(t)}</option>`).join('')}</select></div>
+ <div><label for="${p}s">Schedule</label><input id="${p}s" value="${esc(v.Schedule)}" placeholder="Mon, Wed, Fri 18:00-20:00"></div>
+ <div><label for="${p}a">Start date</label><input id="${p}a" type="date" value="${esc(v.Start)}"></div>
+ <div><label for="${p}b">End date</label><input id="${p}b" type="date" value="${esc(v.End)}"></div>
+ <div><label for="${p}h">Instructional hours</label><input id="${p}h" type="number" min="0" step="0.5" value="${esc(v.Hours)}"></div>
+ <div><label for="${p}f">Fee (${CUR})</label><input id="${p}f" type="number" min="0" step="0.01" value="${esc(v.Fee)}"></div>
+ <div><label for="${p}c">Enrollment cap</label><input id="${p}c" type="number" min="1" step="1" value="${esc(v.Cap)}"></div>
+ <div><label for="${p}u">Status</label><select id="${p}u">${CL.status.map(x=>`<option ${(v.Status||'Accepting')===x?'selected':''}>${x}</option>`).join('')}</select></div>`};
+const readCls=p=>({Name:$('#'+p+'n').value,Type:$('#'+p+'t').value,Schedule:$('#'+p+'s').value,Start:$('#'+p+'a').value,End:$('#'+p+'b').value,Hours:$('#'+p+'h').value,Fee:$('#'+p+'f').value,Cap:$('#'+p+'c').value,Status:$('#'+p+'u').value});
+
+function tClasses(){
+ if(!CL){$('#sp').innerHTML='<div class="bar"><h2>Classes</h2></div><div class="card"><p class="mut">Loading classes…</p></div>';
+  R('classData',TOK).then(d=>{CL=d;if(tab==='Classes')tClasses()}).catch(clErr);return}
+ $('#sp').innerHTML=`<div class="bar"><h2>Classes</h2></div>
+ <div class="card"><h3 style="margin-bottom:4px">Create a class</h3><p class="mut" style="margin:0 0 6px">The class ID is created automatically. Every create, edit and delete is recorded in the activity log.</p>
+  <div class="fg fg3">${classFields('nc')}</div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px"><button class="btn" onclick="saveCls(this)">Create class</button><button class="btn ghost" onclick="typeModal()">+ Add a class type</button></div></div>
+ <div class="card"><h3 style="margin-bottom:4px">Filter classes</h3>
+  <div class="fg fg5"><div><label for="cfi">Class ID</label><input id="cfi" value="${esc(cf.id)}" placeholder="CLAID-26-…" oninput="cf.id=this.value;drawClassList()"></div>
+   <div><label for="cft">Class type</label><select id="cft" onchange="cf.type=this.value;drawClassList()"><option value="">All types</option>${CL.types.map(t=>`<option ${cf.type===t?'selected':''}>${esc(t)}</option>`).join('')}</select></div>
+   <div><label for="cfs">Status</label><select id="cfs" onchange="cf.status=this.value;drawClassList()"><option value="">All statuses</option>${CL.status.map(t=>`<option ${cf.status===t?'selected':''}>${t}</option>`).join('')}</select></div>
+   <div><label for="cff">Running from</label><input id="cff" type="date" value="${esc(cf.from)}" onchange="cf.from=this.value;drawClassList()"></div>
+   <div><label for="cfu">Until</label><input id="cfu" type="date" value="${esc(cf.to)}" onchange="cf.to=this.value;drawClassList()"></div></div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px"><button class="btn sm ghost" onclick="cf={id:'',type:'',status:'',from:'',to:''};tClasses()">Reset filters</button><button class="btn sm ghost" onclick="expXlsx(this)">Export to Excel</button><button class="btn sm ghost" onclick="expPdf()">Export to PDF</button><span class="mut" id="cl-count" style="margin-left:6px"></span></div></div>
+ <div id="cl-list"></div>
+ <details class="card"><summary style="cursor:pointer;font-weight:700">Activity log <span class="tag">${CL.log.length}</span> <span class="mut" style="font-weight:400">Who changed what, and when.</span></summary>
+  <div class="tw" style="margin-top:12px"><table><tr><th>When</th><th>Who</th><th>Action</th><th>Class</th><th>What changed</th></tr>${CL.log.map(l=>`<tr><td style="white-space:nowrap">${esc(new Date(l.At).toLocaleString())}</td><td>${esc(l.By)}</td><td>${esc(l.Action)}</td><td>${esc(l.ClassID)}</td><td>${esc(l.Detail)}</td></tr>`).join('')||'<tr><td colspan="5" class="mut">Nothing recorded yet.</td></tr>'}</table></div></details>`;
+ drawClassList()}
+
+// Without filters: classes that have not ended. With filters: every class that matches, and the archive opens too.
+function clView(){const t=today(),any=Object.values(cf).some(v=>String(v).trim());
+ const f=c=>!((cf.id.trim()&&!String(c.ClassID).toLowerCase().includes(cf.id.trim().toLowerCase()))||(cf.type&&c.Type!==cf.type)||(cf.status&&c.Status!==cf.status)||(cf.from&&c.End<cf.from)||(cf.to&&c.Start>cf.to));
+ const all=CL.classes.filter(f);
+ return{t,any,act:all.filter(c=>c.End>=t).sort((a,b)=>a.Start.localeCompare(b.Start)||a.ClassID.localeCompare(b.ClassID)),arc:all.filter(c=>c.End<t).sort((a,b)=>b.End.localeCompare(a.End))}}
+const clRow=(c,arch)=>`<tr><td style="white-space:nowrap"><b>${esc(c.ClassID)}</b></td><td>${esc(c.Name)}</td><td>${esc(c.Type)}</td><td>${esc(c.Schedule)}</td><td style="white-space:nowrap">${fd(c.End)}</td><td>${money(c.Fee)}</td><td style="white-space:nowrap">${c.Enrolled} / ${c.Cap}</td><td>${arch?'<span class="tag st-c">Archived</span>':stTag(c.Status)}</td><td style="white-space:nowrap"><button class="btn sm ghost" onclick="editCls('${esc(c.ClassID)}')">Edit</button> <button class="btn sm" onclick="viewCls('${esc(c.ClassID)}')">View</button></td></tr>`;
+function drawClassList(){const v=clView();
+ const tbl=(L,arch,empty)=>`<table><tr><th>Class ID</th><th>Name</th><th>Type</th><th>Schedule</th><th>Finish date</th><th>Fee</th><th>Enroll cap</th><th>Status</th><th></th></tr>${L.map(c=>clRow(c,arch)).join('')||`<tr><td colspan="9" class="mut">${empty}</td></tr>`}</table>`;
+ $('#cl-list').innerHTML=`<div class="card tw"><div style="padding:20px 24px 6px"><h3 style="margin:0">${v.any?'Matching classes':'Current classes'} <span class="tag">${v.act.length}</span></h3><p class="mut" style="margin:4px 0 12px">${v.any?'Classes that match your filters.':'Classes that have not ended yet: accepting, full or closed.'}</p></div>${tbl(v.act,false,v.any?'No current classes match these filters.':'No classes yet. Use Create a class above.')}</div>
+ <details class="card" ${v.any&&v.arc.length?'open':''}><summary style="cursor:pointer;font-weight:700">Archive <span class="tag">${v.arc.length}</span> <span class="mut" style="font-weight:400">Classes move here automatically after their finish date.</span></summary><div class="tw" style="margin-top:12px">${tbl(v.arc,true,'No archived classes.')}</div></details>`;
+ const n=$('#cl-count');if(n)n.textContent=v.any?`${v.act.length+v.arc.length} match${v.act.length+v.arc.length===1?'':'es'}`:`${v.act.length} current class${v.act.length===1?'':'es'}`}
+
+const stuTable=(L,rm)=>`<div class="tw"><table><tr><th>Student ID</th><th>Name</th><th>Status</th><th>Date</th>${rm?'<th></th>':''}</tr>${L.map(e=>`<tr><td><b>${esc(e.StudentID)}</b></td><td>${esc(e.Name)}</td><td>${esc(e.Status)}</td><td>${e.At?esc(new Date(e.At).toLocaleDateString()):''}</td>${rm?`<td>${e.Status==='Enrolled'?`<button class="btn sm ghost" onclick="wdStu('${esc(e.ClassID)}','${esc(e.StudentID)}',this)">Remove</button>`:''}</td>`:''}</tr>`).join('')||`<tr><td colspan="${rm?5:4}" class="mut">No students yet.</td></tr>`}</table></div>`;
+function editCls(id){const c=CL.classes.find(x=>x.ClassID===id);if(!c)return;
+ modal(`<h3>Edit class</h3><p class="mut" style="margin:0 0 6px">${esc(c.ClassID)} · ${c.Enrolled} of ${c.Cap} places taken</p><div class="fg">${classFields('ec',c)}</div>
+  <h4 style="margin:18px 0 8px">Enrolled students</h4>${stuTable(CL.enroll.filter(e=>e.ClassID===id&&e.Status==='Enrolled'),true)}
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px"><button class="btn" onclick="saveCls(this,'${esc(id)}')">Save changes</button><button class="btn ghost" onclick="closeM()">Cancel</button><button class="btn ghost" style="margin-left:auto;color:#B3261E;border-color:#B3261E" onclick="delCls('${esc(id)}',this)">Delete class</button></div>`,true)}
+function viewCls(id){const c=CL.classes.find(x=>x.ClassID===id);if(!c)return;
+ modal(`<h3>${esc(c.Name)}</h3><p class="mut" style="margin:0 0 4px">${esc(c.ClassID)} · ${esc(c.Type)} · ${esc(c.Schedule)}</p><p class="mut" style="margin:0 0 12px">${fd(c.Start)} to ${fd(c.End)} · ${c.Enrolled} of ${c.Cap} places taken</p>
+  ${stuTable(CL.enroll.filter(e=>e.ClassID===id),false)}<div style="margin-top:18px"><button class="btn" onclick="closeM()">Close</button></div>`,true)}
+async function saveCls(b,id){const o=readCls(id?'ec':'nc'),had=new Set(CL.classes.map(c=>c.ClassID));if(id)o.ClassID=id;b.disabled=true;
+ try{CL=await R('saveClass',TOK,o);const nw=CL.classes.find(c=>!had.has(c.ClassID));
+  if(id){closeM();toast('Class updated.',true)}else toast('Class created: '+(nw?nw.ClassID:''),true);tClasses()}
+ catch(e){clErr(e)}finally{b.disabled=false}}
+async function delCls(id,b){if(!confirm('Delete class '+id+'? This is recorded in the activity log and cannot be undone.'))return;b.disabled=true;
+ try{CL=await R('deleteClass',TOK,id);closeM();toast('Class deleted.',true);tClasses()}catch(e){clErr(e)}finally{b.disabled=false}}
+async function wdStu(cid,sid,b){if(!confirm('Remove student '+sid+' from this class?'))return;b.disabled=true;
+ try{CL=await R('withdrawStudent',TOK,cid,sid);toast('Student removed.',true);drawClassList();editCls(cid)}catch(e){clErr(e);b.disabled=false}}
+function typeModal(){modal(`<h3>Add a class type</h3><p class="mut">It will appear in the class type lists for creating and filtering classes.</p><label for="nt">Class type name</label><input id="nt" maxlength="40" placeholder="e.g. Speaking Workshop">
+ <div style="display:flex;gap:10px;margin-top:18px"><button class="btn" onclick="addType(this)">Add type</button><button class="btn ghost" onclick="closeM()">Cancel</button></div>`)}
+async function addType(b){b.disabled=true;try{CL=await R('addClassType',TOK,$('#nt').value);closeM();toast('Class type added.',true);tClasses()}catch(e){clErr(e)}finally{b.disabled=false}}
+
+function clExportRows(){const v=clView();return{v,L:v.any?v.act.concat(v.arc):v.act}}
+function expXlsx(b){const{v,L}=clExportRows();if(!L.length)return toast('There are no classes to export.');
+ const go=()=>{const r=[['Class ID','Name','Type','Schedule','Start date','Finish date','Instructional hours','Fee','Enroll cap','Enrolled','Status']].concat(L.map(c=>[c.ClassID,c.Name,c.Type,c.Schedule,c.Start,c.End,+c.Hours,+c.Fee,+c.Cap,c.Enrolled,c.End<v.t?'Archived':c.Status]));
+  const ws=XLSX.utils.aoa_to_sheet(r);ws['!cols']=r[0].map((_,i)=>({wch:Math.min(40,Math.max(...r.map(x=>String(x[i]).length))+2)}));
+  const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'Classes');XLSX.writeFile(wb,'classes-'+today()+'.xlsx')};
+ if(window.XLSX)return go();b.disabled=true;const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
+ s.onload=()=>{b.disabled=false;go()};s.onerror=()=>{b.disabled=false;toast('Could not load the Excel tool. Check your internet connection and try again.')};document.head.appendChild(s)}
+function expPdf(){const{v,L}=clExportRows();if(!L.length)return toast('There are no classes to export.');
+ const cs=getComputedStyle(document.documentElement),nv=cs.getPropertyValue('--navy').trim()||'#12284d',gd=cs.getPropertyValue('--gold').trim()||'#C6A15B';
+ const fl=[cf.id.trim()&&'ID contains "'+cf.id.trim()+'"',cf.type&&'Type: '+cf.type,cf.status&&'Status: '+cf.status,cf.from&&'Running from '+fd(cf.from),cf.to&&'Until '+fd(cf.to)].filter(Boolean).join(' · ')||'No filters: current classes';
+ const w=window.open('','_blank');if(!w)return toast('Your browser blocked the PDF window. Allow pop-ups for this site and try again.');
+ w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Class list ${today()}</title><style>@page{size:A4 landscape;margin:14mm}body{font:12px/1.4 'Times New Roman',Times,serif;color:${nv}}h1{font-size:21px;margin:0}.top{display:flex;gap:14px;align-items:center;border-bottom:3px solid ${gd};padding-bottom:10px;margin-bottom:12px}img{height:56px}table{width:100%;border-collapse:collapse}th{background:${nv};color:#fff;text-align:left;padding:6px 8px;-webkit-print-color-adjust:exact;print-color-adjust:exact}td{padding:6px 8px;border-bottom:1px solid #ccd3df;vertical-align:top}small{color:#5b6b85}</style></head><body>
+  <div class="top"><img src="${LOGO}" alt=""><div><h1>${esc(SCHOOL)}</h1><div>Class list · ${fd(v.t)}</div><small>${esc(fl)} · ${L.length} class${L.length===1?'':'es'}</small></div></div>
+  <table><tr><th>Class ID</th><th>Name</th><th>Type</th><th>Schedule</th><th>Start</th><th>Finish</th><th>Hours</th><th>Fee</th><th>Enrolled / cap</th><th>Status</th></tr>${L.map(c=>`<tr><td>${esc(c.ClassID)}</td><td>${esc(c.Name)}</td><td>${esc(c.Type)}</td><td>${esc(c.Schedule)}</td><td>${fd(c.Start)}</td><td>${fd(c.End)}</td><td>${esc(c.Hours)}</td><td>${money(c.Fee)}</td><td>${c.Enrolled} / ${c.Cap}</td><td>${c.End<v.t?'Archived':esc(c.Status)}</td></tr>`).join('')}</table></body></html>`);
+ w.document.close();w.focus();setTimeout(()=>w.print(),500)}
+
+/* ================= Class hall, registration and student portal (the class-hall address) ================= */
+const BASE=location.origin+location.pathname;
+let PTOK='';try{PTOK=sessionStorage.getItem('alpt')||''}catch(e){}
+const setPtok=t=>{PTOK=t||'';try{t?sessionStorage.setItem('alpt',t):sessionStorage.removeItem('alpt')}catch(e){}};
+let HC={classes:[],types:[],type:''},RG={},SD=null,sdTab='Overview';
+const stuHead=(sub,right)=>`<header class="ph">${logo('phl')}<div class="pn"><b>${SCHOOL}</b><small>${sub}</small></div><span class="sp"></span>${right||''}</header>`;
+const stuErr=e=>{const m=String(e.message||e);if(/expired/i.test(m)){setPtok('');SD=null;stuLoginView('Your session ended. Please sign in again.')}else toast(m)};
+const classKv=c=>`<dl class="kv"><dt>Schedule</dt><dd>${esc(c.Schedule)}</dd><dt>Starts</dt><dd>${fd(c.Start)}</dd><dt>Ends</dt><dd>${fd(c.End)}</dd><dt>Hours</dt><dd>${esc(c.Hours)}</dd><dt>Students</dt><dd>${c.Enrolled} / ${c.Cap}</dd><dt>Fee</dt><dd>${money(c.Fee)}</dd></dl>`;
+const classCard=(c,act,label)=>{const full=c.Status==='Full'||c.Enrolled>=c.Cap;return`<button class="ccard ${full?'full':''}" ${full?'disabled':''} onclick="${act}('${esc(c.ClassID)}')"><span class="tag">${esc(c.Type)}</span><h3>${esc(c.Name)}</h3><p class="mut" style="margin:-4px 0 0">${esc(c.Schedule)}</p><dl><dt>Starts</dt><dd>${fd(c.Start)}</dd><dt>Ends</dt><dd>${fd(c.End)}</dd><dt>Students</dt><dd>${c.Enrolled} / ${c.Cap}</dd><dt>Fee</dt><dd>${money(c.Fee)}</dd></dl><span class="cbtn">${full?'Class full':label}</span></button>`};
+
+/* ---- Class hall ---- */
+async function hallView(){scrollTo(0,0);
+ shell(stuHead('Class hall',PTOK?`<button class="btn sm ghost phb" onclick="stuOpen()">My portal</button>`:`<button class="btn sm ghost phb" onclick="stuLoginView()">Student sign in</button>`)+`<main class="pm"><div class="phero"><h1>Choose your class</h1><p class="mut">Select a class to begin your registration. It takes about two minutes.</p></div><div class="chips" id="hchips"></div><div class="cgrid" id="hgrid"><p class="mut">Loading classes…</p></div></main>`);
+ try{const d=await R('pubClasses');HC.classes=d.classes;HC.types=d.types;drawHall()}catch(e){$('#hgrid').innerHTML=`<p class="err">${esc(e.message||e)}</p>`}}
+const hcType=i=>{HC.type=i<0?'':HC.types[i];drawHall()};
+function drawHall(){
+ $('#hchips').innerHTML=`<button class="chip ${HC.type?'':'on'}" onclick="hcType(-1)">All classes</button>`+HC.types.map((t,i)=>`<button class="chip ${HC.type===t?'on':''}" onclick="hcType(${i})">${esc(t)}</button>`).join('');
+ const L=HC.classes.filter(c=>!HC.type||c.Type===HC.type);
+ $('#hgrid').innerHTML=L.map(c=>classCard(c,'regView','Register for this class')).join('')||'<p class="mut" style="grid-column:1/-1;text-align:center">No classes are open for registration in this category right now.</p>'}
+
+/* ---- Registration ---- */
+function regView(cid){const c=HC.classes.find(x=>x.ClassID===cid);if(!c)return hallView();RG={cid,c,mode:'new',proof:'',verified:false,sent:false,f:{},found:null,oid:''};drawReg()}
+function drawReg(){const c=RG.c;scrollTo(0,0);
+ shell(stuHead('Class registration',`<button class="btn sm ghost phb" onclick="hallView()">← Class hall</button>`)+`<main class="pm"><div class="rgrid"><div class="card" id="rform"></div><aside class="rside"><div class="card"><span class="tag">${esc(c.Type)}</span><h3 style="margin:10px 0 4px">${esc(c.Name)}</h3><p class="mut" style="margin:0 0 12px">Your selected class</p>${classKv(c)}<button class="btn ghost w" style="margin-top:16px" onclick="hallView()">Change class</button></div></aside></div></main>`);
+ drawRForm()}
+const gblk=(p,v)=>`<h3 style="margin:22px 0 4px">Guardian information</h3><p class="mut" style="margin:0 0 6px">Required for students under 16.</p><div class="fg"><div><label>Guardian's full name</label><input data-f="GuardName" value="${esc(v.GuardName)}"></div><div><label>Relationship to student</label><input data-f="GuardRel" value="${esc(v.GuardRel)}" placeholder="e.g. Mother"></div><div><label>Guardian's phone number</label><input type="tel" data-f="GuardPhone" value="${esc(v.GuardPhone)}"></div><div><label>Guardian's Telegram</label><input data-f="GuardTelegram" value="${esc(v.GuardTelegram)}" placeholder="@username"></div><div><label>Guardian's email <small>(optional)</small></label><input type="email" data-f="GuardEmail" value="${esc(v.GuardEmail)}"></div></div>`;
+function drawRForm(){const n=RG.mode==='new',f=RG.f;
+ $('#rform').innerHTML=`<div class="seg2"><button class="${n?'on':''}" onclick="RG.mode='new';drawRForm()">New student</button><button class="${n?'':'on'}" onclick="RG.mode='old';drawRForm()">Existing student</button></div>`+(n?`<h2 style="margin:0 0 4px">Your details</h2><p class="mut" style="margin:0 0 6px">Please enter your own information. We will email your registration to the address you verify.</p>
+  <div class="fg"><div><label>Full name</label><input data-f="Name" value="${esc(f.Name)}" autocomplete="name"></div><div><label>Sex</label><select data-f="Sex"><option value="">Choose…</option><option value="M" ${f.Sex==='M'?'selected':''}>Male</option><option value="F" ${f.Sex==='F'?'selected':''}>Female</option></select></div><div><label>Age</label><input type="number" min="3" max="99" data-f="Age" value="${esc(f.Age)}" oninput="ageCh(this.value)"></div><div><label>Phone number</label><input type="tel" data-f="Phone" value="${esc(f.Phone)}" autocomplete="tel"></div><div><label>Telegram username</label><input data-f="Telegram" value="${esc(f.Telegram)}" placeholder="@username"></div></div>
+  <label style="margin-top:12px">Email address</label><div style="display:flex;gap:10px"><input type="email" data-f="Email" value="${esc(f.Email)}" ${RG.verified?'readonly':''} autocomplete="email"><button class="btn sm ghost" style="white-space:nowrap" onclick="sendOtp(this)" ${RG.verified?'disabled':''}>${RG.sent?'Resend code':'Send code'}</button></div>
+  ${RG.sent&&!RG.verified?`<label style="margin-top:12px" for="rOtp">6-character code from your email</label><div style="display:flex;gap:10px"><input id="rOtp" maxlength="6" autocomplete="one-time-code" style="text-transform:uppercase;letter-spacing:6px;font-weight:700;max-width:220px"><button class="btn sm" onclick="verifyOtp(this)">Verify</button></div>`:''}
+  ${RG.verified?'<p class="ok" style="margin:10px 0 0">✓ Email verified</p>':''}
+  <div id="gblk" style="display:${+f.Age&&+f.Age<16?'block':'none'}">${gblk('',f)}</div>
+  <p class="err" id="rErr"></p><button class="btn w" onclick="submitNew(this)" ${RG.verified?'':'disabled'}>Submit application</button>${RG.verified?'':'<p class="mut" style="text-align:center;margin:8px 0 0">Verify your email to enable the button.</p>'}`
+ :`<h2 style="margin:0 0 4px">Existing student</h2><p class="mut" style="margin:0 0 10px">Enter your student ID (for example CA-26-F-001).</p><label for="oId">Student ID</label><div style="display:flex;gap:10px"><input id="oId" value="${esc(RG.oid)}" placeholder="CA-26-F-001" style="text-transform:uppercase" autocomplete="off"><button class="btn sm" style="white-space:nowrap" onclick="findStu(this)">Find my account</button></div>
+  ${RG.found?`<div class="found"><b>Welcome back, ${esc(RG.found.name)}</b><br><span class="mut">We will send your confirmation to ${esc(RG.found.email)}.</span></div><button class="btn w" onclick="submitOld(this)">Submit registration</button>`:''}<p class="err" id="rErr"></p>`);
+ $('#rform').oninput=e=>{const k=e.target.dataset.f;if(k)RG.f[k]=e.target.value}}
+const ageCh=v=>{const g=$('#gblk');if(g)g.style.display=+v&&+v<16?'block':'none'};
+async function sendOtp(b){const em=(RG.f.Email||'').trim();$('#rErr').textContent='';if(!/^\S+@\S+\.\S+$/.test(em))return $('#rErr').textContent='Enter a valid email address first.';b.disabled=true;
+ try{await R('pubSendOtp',em);RG.sent=true;drawRForm();toast('We sent a 6-character code to '+em+'.',true);const o=$('#rOtp');if(o)o.focus()}catch(e){b.disabled=false;$('#rErr').textContent=String(e.message||e)}}
+async function verifyOtp(b){b.disabled=true;try{RG.proof=await R('pubVerifyOtp',RG.f.Email,$('#rOtp').value);RG.verified=true;drawRForm()}catch(e){b.disabled=false;$('#rErr').textContent=String(e.message||e)}}
+async function submitNew(b){$('#rErr').textContent='';b.disabled=true;b.textContent='Submitting…';
+ try{const r=await R('pubRegister',RG.cid,RG.f,RG.proof);regDone(r.email,r.sent,r.id)}catch(e){b.disabled=false;b.textContent='Submit application';$('#rErr').textContent=String(e.message||e)}}
+async function findStu(b){RG.oid=($('#oId').value||'').trim().toUpperCase();$('#rErr').textContent='';RG.found=null;b.disabled=true;
+ try{RG.found=await R('pubFindStudent',RG.oid);drawRForm()}catch(e){b.disabled=false;drawRForm();$('#rErr').textContent=String(e.message||e)}}
+async function submitOld(b){b.disabled=true;b.textContent='Submitting…';try{const r=await R('pubRegisterExisting',RG.cid,RG.found.id);regDone(r.email,r.sent,'')}catch(e){b.disabled=false;b.textContent='Submit registration';$('#rErr').textContent=String(e.message||e)}}
+function regDone(email,sent,id,after){modal(`<div style="text-align:center"><div class="okc">✓</div><h3 style="margin:10px 0 6px">Registration submitted</h3>
+ <p>${sent?`A registration email has been sent to <b>${esc(email)}</b>. It includes a PDF letter confirming your registration.`:'Your registration was saved, but we could not send the email. Please contact the school.'}</p>${id?`<p>Your student ID is <b>${esc(id)}</b>. Keep it safe: you will use it to register for other classes.</p>`:''}
+ <p class="mut">Your place is confirmed once payment is made at the school.</p><button class="btn w" onclick="closeM();${after||'hallView()'}">${after?'Done':'Back to class hall'}</button></div>`)}
+
+/* ---- Student sign-in ---- */
+function stuLoginView(msg){
+ shell(`<div class="lg">${lbrand('Student portal','See your progress, homework, assessments and new classes.')}<div class="lcw"><div class="lc"><h1>Student sign in</h1><p class="mut">Use your student ID and the password from your enrollment email.</p>
+ <label for="si">Student ID</label><input id="si" autocomplete="username" placeholder="CA-26-F-001"><label for="sw">Password</label><input id="sw" type="password" autocomplete="current-password">
+ <p class="err" id="err">${esc(msg||'')}</p><button class="btn w" id="go">Sign in</button><p style="text-align:center;margin:16px 0 0"><a href="#" onclick="hallView();return false" style="color:var(--navy)">← Back to class hall</a></p></div></div></div>`);
+ const go=async()=>{if($('#go').disabled)return;const i=$('#si').value.trim(),p=$('#sw').value;if(!i||!p){$('#err').textContent='Enter your student ID and password.';return}
+  $('#err').textContent='';$('#go').disabled=true;const shown=fxShow('Logging in');
+  try{const r=await R('stuLogin',i,p);setPtok(r.tok);await shown;
+   if(r.must){fxHide();$('#go').disabled=false;stuPwModal(true,p);return}
+   SD=await R('stuData',PTOK,BASE);stuHome();await fxGreet('in',SD.me.Name);fxHide()}
+  catch(e){await shown;fxHide();$('#go').disabled=false;$('#err').textContent=String(e.message||e)}};
+ $('#go').onclick=go;$('#sw').onkeydown=e=>{if(e.key==='Enter')go()};$('#si').onkeydown=e=>{if(e.key==='Enter')$('#sw').focus()}}
+function stuPwModal(forced,cur){modal(`<h3>${forced?'Choose your own password':'Change password'}</h3><p class="mut">${forced?'Your account is using a temporary password. Choose a new one to continue.':'Use at least 8 characters, with letters and numbers.'}</p>
+ ${forced?'':'<label for="q0">Current password</label><input id="q0" type="password" autocomplete="current-password">'}<label for="q1">New password</label><input id="q1" type="password" autocomplete="new-password"><label for="q2">Confirm new password</label><input id="q2" type="password" autocomplete="new-password"><p class="err" id="qe"></p>
+ <div style="display:flex;gap:10px;margin-top:14px"><button class="btn" id="qs">Save password</button>${forced?'':'<button class="btn ghost" onclick="closeM()">Cancel</button>'}</div>`);
+ $('#qs').onclick=async()=>{if($('#q1').value!==$('#q2').value)return $('#qe').textContent='The two passwords do not match.';$('#qs').disabled=true;
+  try{await R('stuChangePassword',PTOK,forced?cur:$('#q0').value,$('#q1').value);closeM();toast('Password saved.',true);if(forced){SD=await R('stuData',PTOK,BASE);stuHome()}}catch(e){$('#qs').disabled=false;$('#qe').textContent=String(e.message||e)}}}
+async function stuOpen(){try{SD=await R('stuData',PTOK,BASE);stuHome()}catch(e){stuErr(e)}}
+async function stuOut(){const nm=SD?SD.me.Name:'';const shown=fxShow('Logging out');try{await Promise.all([R('stuLogout',PTOK).catch(()=>{}),shown,fxDelay(800)])}catch(e){}setPtok('');SD=null;sdTab='Overview';await fxGreet('out',nm);stuLoginView();fxHide()}
+
+/* ---- Student portal ---- */
+const ENR={Enrolled:['st-a','Enrolled'],Registered:['st-f','Awaiting payment'],Withdrawn:['st-c','Withdrawn']};
+const enrTag=s=>`<span class="tag ${(ENR[s]||ENR.Withdrawn)[0]}">${(ENR[s]||[0,s])[1]}</span>`;
+function stuHome(){
+ const T=['Overview','My classes','Homework','Assessments','New classes','Profile'];
+ shell(stuHead('Student portal',`<span class="who">${esc(SD.me.Name)}</span><button class="btn sm ghost phb" onclick="hallView()">Class hall</button><button class="btn sm ghost phb" onclick="stuOut()">Sign out</button>`)+`<main class="pm"><nav class="ptabs">${T.map(t=>`<button class="${t===sdTab?'on':''}" onclick="sdTab='${t}';stuHome()">${t}</button>`).join('')}</nav><div id="sdb"></div></main>`);
+ ({Overview:sdOver,'My classes':sdClasses,Homework:()=>sdItems('homework'),Assessments:()=>sdItems('exam'),'New classes':sdNew,Profile:sdProfile}[sdTab])()}
+const sdDue=it=>it.when?new Date(it.when):null;
+function sdItem(it){const due=sdDue(it),hw=it.kind==='homework',late=hw&&due&&due<new Date()&&it.status==='Not started';
+ const tag=it.status==='Released'?`<span class="tag st-a">${it.pct!=null?it.pct+'%':'Result ready'}</span>`:it.status==='Submitted'?'<span class="tag st-f">Submitted, awaiting marks</span>':late?'<span class="tag st-c">Deadline passed</span>':'<span class="tag st-f">To do</span>';
+ return`<div class="card item"><div class="bar" style="margin-bottom:6px"><h3 style="margin:0">${esc(it.title)}</h3>${tag}</div><p class="mut" style="margin:0 0 10px">${hw?'Due':'Exam'}: ${due?esc(due.toLocaleString([],{dateStyle:'medium',timeStyle:'short'})):'—'} · Code <b>${esc(it.code)}</b></p>
+ ${it.status==='Released'?`${it.pct!=null?`<div class="prog"><i style="width:${it.pct}%"></i></div><p style="margin:8px 0 0"><b>${it.total} / ${it.max}</b> marks</p>`:''}${it.comment?`<p class="mut" style="margin:8px 0 0">Teacher: ${esc(it.comment)}</p>`:''}${it.link?`<p style="margin:12px 0 0"><a class="btn sm ghost" href="${esc(it.link)}" target="_blank" rel="noopener">View full result</a></p>`:''}`
+ :it.status==='Not started'&&!late?`<div class="found" style="margin:0"><small class="mut">Sign in to the exam hall with:</small><br>Exam code <b>${esc(it.code)}</b> · Username <b>${esc(it.user)}</b> · Passcode <b>${esc(it.pass)}</b></div><p style="margin:12px 0 0"><a class="btn sm gold" href="${esc(SD.hall)}" target="_blank" rel="noopener">Open the exam hall</a></p>`:''}</div>`}
+function sdOver(){const t=new Date(),ac=SD.classes.filter(c=>c.Status==='Enrolled'&&c.End>=today()),todo=SD.items.filter(i=>i.status==='Not started'&&(!sdDue(i)||sdDue(i)>=t)),rel=SD.items.filter(i=>i.status==='Released'&&i.pct!=null),avg=rel.length?Math.round(rel.reduce((a,i)=>a+i.pct,0)/rel.length):null;
+ $('#sdb').innerHTML=`<div class="stats"><div class="stat"><b>${ac.length}</b>Current classes</div><div class="stat"><b>${todo.length}</b>To do</div><div class="stat"><b>${SD.items.filter(i=>i.status!=='Not started').length}</b>Completed</div><div class="stat"><b>${avg==null?'—':avg+'%'}</b>Average score</div></div>
+ <div class="card"><h3 style="margin-top:0">Overall progress</h3>${avg==null?'<p class="mut">Your scores will appear here once your teacher releases them.</p>':`<div class="prog"><i style="width:${avg}%"></i></div><p class="mut" style="margin:8px 0 0">Average across ${rel.length} released result${rel.length>1?'s':''}.</p>`}</div>
+ <div class="card"><h3 style="margin-top:0">Current classes</h3>${ac.map(c=>`<p style="margin:0 0 8px"><b>${esc(c.Name)}</b> <span class="tag">${esc(c.Type)}</span><br><span class="mut">${esc(c.Schedule)} · until ${fd(c.End)}</span></p>`).join('')||'<p class="mut">No current classes.</p>'}</div>
+ <h3>Coming up</h3>${todo.sort((a,b)=>String(a.when).localeCompare(String(b.when))).slice(0,4).map(sdItem).join('')||'<p class="mut">Nothing is due right now.</p>'}`}
+function sdClasses(){$('#sdb').innerHTML=`<div class="card tw"><table><tr><th>Class</th><th>Type</th><th>Schedule</th><th>Dates</th><th>Status</th></tr>${SD.classes.map(c=>`<tr><td><b>${esc(c.Name)}</b></td><td>${esc(c.Type)}</td><td>${esc(c.Schedule)}</td><td style="white-space:nowrap">${fd(c.Start)} – ${fd(c.End)}</td><td>${enrTag(c.Status)}</td></tr>`).join('')||'<tr><td colspan="5" class="mut">No classes yet.</td></tr>'}</table></div>`}
+function sdItems(kind){const L=SD.items.filter(i=>i.kind===kind);$('#sdb').innerHTML=L.map(sdItem).join('')||`<div class="card"><p class="mut" style="margin:0">${kind==='homework'?'No homework has been assigned to you yet.':'No exams or assessments have been assigned to you yet.'}</p></div>`}
+function sdNew(){$('#sdb').innerHTML=`<p class="mut">Register for another class. Your access continues while you are enrolled in a current class.</p><div class="cgrid">${SD.available.map(c=>classCard(c,'stuReg','Register')).join('')||'<p class="mut">No other classes are open for registration right now.</p>'}</div>`}
+function stuReg(cid){const c=SD.available.find(x=>x.ClassID===cid);if(!c)return;modal(`<h3>Register for this class?</h3><p><b>${esc(c.Name)}</b><br><span class="mut">${esc(c.Type)} · ${fd(c.Start)} – ${fd(c.End)} · ${money(c.Fee)}</span></p><p class="mut">A confirmation email with a PDF letter will be sent to the email address on your account.</p><div style="display:flex;gap:10px"><button class="btn" id="rgo">Submit registration</button><button class="btn ghost" onclick="closeM()">Cancel</button></div>`);
+ $('#rgo').onclick=async()=>{$('#rgo').disabled=true;try{const r=await R('stuRegister',PTOK,cid,BASE);SD=r.data;closeM();regDone(r.r.email,r.r.sent,'',"sdTab='My classes';stuHome()");stuHome()}catch(e){closeM();stuErr(e)}}}
+const PF=[['Name','Full name'],['Age','Age'],['Email','Email'],['Phone','Phone'],['Telegram','Telegram']],GF=[['GuardName','Guardian'],['GuardRel','Relationship'],['GuardPhone','Guardian phone'],['GuardTelegram','Guardian Telegram'],['GuardEmail','Guardian email']];
+const stuFields=(p,v,o)=>{o=o||{};const i=(k,l,t)=>`<div><label for="${p}${k}">${l}</label><input id="${p}${k}" ${t?`type="${t}"`:''} value="${esc(v[k])}"></div>`;
+ return`<div class="fg">${i('Name','Full name')}${o.sex?`<div><label for="${p}Sex">Sex</label><select id="${p}Sex"><option value="">Choose…</option><option value="M">Male</option><option value="F">Female</option></select></div>`:''}${i('Age','Age','number')}${i('Phone','Phone number','tel')}${i('Telegram','Telegram username')}${i('Email','Email address','email')}${o.teacher?`<div><label for="${p}Teacher">Teacher</label><select id="${p}Teacher"><option value="">Not assigned</option>${D.staff.map(s=>`<option value="${esc(s.Username)}" ${String(v.Teacher||'').toLowerCase()===s.Username?'selected':''}>${esc(s.Name)}</option>`).join('')}</select></div>`:''}</div>
+ <div id="${p}g" style="display:${+v.Age&&+v.Age<16||v.GuardName?'block':'none'}"><h4 style="margin:16px 0 4px">Guardian</h4><div class="fg">${i('GuardName','Guardian full name')}${i('GuardRel','Relationship')}${i('GuardPhone','Guardian phone','tel')}${i('GuardTelegram','Guardian Telegram')}${i('GuardEmail','Guardian email (optional)','email')}</div></div>`};
+const stuRead=(p,sex)=>{const o={};['Name','Age','Phone','Telegram','Email','GuardName','GuardRel','GuardPhone','GuardTelegram','GuardEmail'].forEach(k=>o[k]=($('#'+p+k)||{}).value||'');if(sex)o.Sex=$('#'+p+'Sex').value;const t=$('#'+p+'Teacher');if(t)o.Teacher=t.value;return o};
+const gShow=p=>{const a=$('#'+p+'Age');if(a)a.oninput=()=>{$('#'+p+'g').style.display=+a.value&&+a.value<16?'block':'none'}};
+function sdProfile(){const m=SD.me,pend=SD.edits.find(e=>e.Status==='Pending');
+ $('#sdb').innerHTML=`<div class="card"><div class="bar"><h3 style="margin:0">${esc(m.Name)} <span class="tag">${esc(m.StudentID)}</span></h3><div class="row"><button class="btn sm ghost" onclick="stuPwModal(false)">Change password</button><button class="btn sm" onclick="stuEditReq()" ${pend?'disabled title="A request is already waiting"':''}>Request an edit</button></div></div>
+ <dl class="kv big">${PF.map(([k,l])=>`<dt>${l}</dt><dd>${esc(m[k])||'—'}</dd>`).join('')}${(+m.Age<16||m.GuardName)?GF.map(([k,l])=>`<dt>${l}</dt><dd>${esc(m[k])||'—'}</dd>`).join(''):''}</dl><p class="mut" style="margin:14px 0 0">To change your details, send an edit request. The school will review it.</p></div>
+ ${SD.edits.length?`<div class="card tw"><div style="padding:18px 24px 4px"><h3 style="margin:0">Your edit requests</h3></div><table><tr><th>Date</th><th>Changes</th><th>Status</th></tr>${SD.edits.map(r=>{let c={};try{c=JSON.parse(r.Changes)}catch(e){}return`<tr><td style="white-space:nowrap">${esc(new Date(r.At).toLocaleDateString())}</td><td>${Object.keys(c).map(k=>esc(k)+': '+esc(c[k])).join('<br>')}</td><td><span class="tag ${r.Status==='Approved'?'st-a':r.Status==='Rejected'?'st-c':'st-f'}">${esc(r.Status)}</span></td></tr>`}).join('')}</table></div>`:''}`}
+function stuEditReq(){modal(`<h3>Request an edit</h3><p class="mut">Change what needs updating. The school reviews every request before it is applied.</p>${stuFields('se',SD.me)}<p class="err" id="se_e"></p><div style="display:flex;gap:10px;margin-top:14px"><button class="btn" id="sesv">Send request</button><button class="btn ghost" onclick="closeM()">Cancel</button></div>`,true);gShow('se');
+ $('#sesv').onclick=async()=>{$('#sesv').disabled=true;try{SD=await R('stuRequestEdit',PTOK,stuRead('se'),BASE);closeM();toast('Your request was sent to the school.',true);stuHome()}catch(e){$('#sesv').disabled=false;$('#se_e').textContent=String(e.message||e)}}}
+
+/* ================= Administrators: students dashboard (inside Candidates), homework, assignment ================= */
+let SM=null,smq='',smc='',cview='students';
+const stuName=id=>((SM&&SM.students.find(s=>s.StudentID===id))||{}).Name||id;
+function tCands(){
+ const tg=`<div class="seg2" style="max-width:440px;margin-bottom:18px"><button class="${cview==='students'?'on':''}" onclick="cview='students';tCands()">Students and classes</button><button class="${cview==='exam'?'on':''}" onclick="cview='exam';tCands()">Exam candidates</button></div>`;
+ if(cview==='exam'){tCands0();$('#sp').insertAdjacentHTML('afterbegin',tg);return}
+ if(!SM){$('#sp').innerHTML=tg+'<div class="card"><p class="mut">Loading students…</p></div>';R('studentsData',TOK).then(d=>{SM=d;if(tab==='Candidates')tCands()}).catch(clErr);return}
+ const pend=SM.edits.filter(r=>r.Status==='Pending');
+ $('#sp').innerHTML=tg+`<div class="bar"><h2>Candidates</h2><button class="btn" onclick="stuEdit('')">Add student</button></div>
+ ${pend.length?`<div class="card"><h3 style="margin-top:0">Profile edit requests <span class="tag">${pend.length}</span></h3>${pend.map(r=>{let c={};try{c=JSON.parse(r.Changes)}catch(e){}const s=SM.students.find(x=>x.StudentID===r.StudentID)||{};return`<div class="req"><div><b>${esc(stuName(r.StudentID))}</b> <span class="tag">${esc(r.StudentID)}</span><br>${Object.keys(c).map(k=>`<span class="mut">${esc(k)}:</span> ${esc(s[k])||'—'} → <b>${esc(c[k])||'—'}</b>`).join('<br>')}</div><div class="row"><button class="btn sm" onclick="decide('${esc(r.ReqID)}',true,this)">Approve</button><button class="btn sm ghost" onclick="decide('${esc(r.ReqID)}',false,this)">Reject</button></div></div>`}).join('')}</div>`:''}
+ <div class="card"><div class="fg"><div><label for="smq">Search</label><input id="smq" value="${esc(smq)}" placeholder="Name, student ID, email or phone" oninput="smq=this.value;drawStuList()"></div><div><label for="smc">Class</label><select id="smc" onchange="smc=this.value;drawStuList()"><option value="">All students</option><option value="-" ${smc==='-'?'selected':''}>Not in any class</option>${SM.classes.map(c=>`<option value="${esc(c.ClassID)}" ${smc===c.ClassID?'selected':''}>${esc(c.Name)} (${esc(c.ClassID)})</option>`).join('')}</select></div></div></div><div id="stulist"></div>`;
+ drawStuList()}
+function drawStuList(){const q=smq.trim().toLowerCase(),act=e=>e.Status!=='Withdrawn';
+ const L=SM.students.filter(s=>{if(q&&!(s.Name+' '+s.StudentID+' '+s.Email+' '+s.Phone).toLowerCase().includes(q))return false;const en=SM.enroll.filter(e=>e.StudentID===s.StudentID&&act(e));if(smc==='-')return!en.length;if(smc)return en.some(e=>e.ClassID===smc);return true});
+ $('#stulist').innerHTML=`<div class="card tw"><div style="padding:18px 24px 4px"><h3 style="margin:0">Students <span class="tag">${L.length}</span></h3></div><table><tr><th>Student ID</th><th>Name</th><th>Age</th><th>Contact</th><th>Teacher</th><th>Classes</th><th></th></tr>${L.map(s=>{const en=SM.enroll.filter(e=>e.StudentID===s.StudentID&&act(e));
+  return`<tr><td style="white-space:nowrap"><b>${esc(s.StudentID)}</b></td><td>${esc(s.Name)}</td><td>${esc(s.Age)}</td><td>${esc(s.Phone)}<br><small class="mut">${esc(s.Email)}${s.Telegram?' · '+esc(s.Telegram):''}</small></td>
+  <td><select onchange="quickTeacher('${esc(s.StudentID)}',this)"><option value="">Not assigned</option>${D.staff.map(t=>`<option value="${esc(t.Username)}" ${String(s.Teacher).toLowerCase()===t.Username?'selected':''}>${esc(t.Name)}</option>`).join('')}</select></td>
+  <td>${en.map(e=>{const c=SM.classes.find(x=>x.ClassID===e.ClassID)||{};return`<span class="tag ${e.Status==='Enrolled'?'st-a':'st-f'}" style="margin:0 4px 4px 0">${esc(c.Name||e.ClassID)} · ${e.Status==='Enrolled'?'Enrolled':'Awaiting payment'}</span>`}).join('')||'<span class="mut">None</span>'}</td>
+  <td style="white-space:nowrap"><button class="btn sm" onclick="stuClasses('${esc(s.StudentID)}')">Classes</button> <button class="btn sm ghost" onclick="stuEdit('${esc(s.StudentID)}')">Edit</button></td></tr>`}).join('')||'<tr><td colspan="7" class="mut">No students match.</td></tr>'}</table></div>`}
+async function quickTeacher(id,sel){const s=SM.students.find(x=>x.StudentID===id);sel.disabled=true;
+ try{SM=await R('saveStudent',TOK,Object.assign({},s,{Teacher:sel.value}));toast('Teacher assigned.',true);drawStuList()}catch(e){clErr(e);drawStuList()}}
+function stuEdit(id){const s=id?SM.students.find(x=>x.StudentID===id):{};
+ modal(`<h3>${id?'Edit student':'Add student'}${id?` <span class="tag">${esc(id)}</span>`:''}</h3>${stuFields('ae',s,{sex:!id,teacher:true})}<p class="err" id="ae_e"></p><div style="display:flex;gap:10px;margin-top:14px"><button class="btn" id="aesv">Save</button><button class="btn ghost" onclick="closeM()">Cancel</button></div>`,true);gShow('ae');
+ $('#aesv').onclick=async()=>{const o=stuRead('ae',!id);if(id)o.StudentID=id;$('#aesv').disabled=true;try{SM=await R('saveStudent',TOK,o);closeM();toast(id?'Student updated.':'Student added.',true);tCands()}catch(e){$('#aesv').disabled=false;$('#ae_e').textContent=String(e.message||e)}}}
+function stuClasses(id){const s=SM.students.find(x=>x.StudentID===id);if(!s)return;
+ const en=SM.enroll.filter(e=>e.StudentID===id),t=today(),mine=new Set(en.filter(e=>e.Status!=='Withdrawn').map(e=>e.ClassID)),cl=SM.classes.filter(c=>c.End>=t&&!mine.has(c.ClassID)),hasAct=en.some(e=>e.Status==='Enrolled');
+ modal(`<h3>${esc(s.Name)} <span class="tag">${esc(id)}</span></h3><h4 style="margin:12px 0 6px">Classes</h4><div class="tw"><table><tr><th>Class</th><th>Status</th><th></th></tr>${en.map(e=>{const c=SM.classes.find(x=>x.ClassID===e.ClassID)||{};return`<tr><td><b>${esc(c.Name||e.ClassID)}</b><br><small class="mut">${esc(e.ClassID)}</small></td><td>${enrTag(e.Status)}</td><td style="white-space:nowrap">${e.Status==='Registered'?`<button class="btn sm gold" onclick="setEnr('${esc(id)}','${esc(e.ClassID)}','Enrolled',this)">Mark paid: enroll</button> `:''}${e.Status==='Withdrawn'?`<button class="btn sm ghost" onclick="setEnr('${esc(id)}','${esc(e.ClassID)}','Registered',this)">Re-register</button>`:`<button class="btn sm ghost" onclick="setEnr('${esc(id)}','${esc(e.ClassID)}','Withdrawn',this)">Remove</button>`}</td></tr>`}).join('')||'<tr><td colspan="3" class="mut">Not in any class yet.</td></tr>'}</table></div>
+ <h4 style="margin:18px 0 6px">Add to a class</h4>${cl.length?`<div style="display:flex;gap:10px;flex-wrap:wrap"><select id="ac" style="flex:1;min-width:200px">${cl.map(c=>`<option value="${esc(c.ClassID)}">${esc(c.Name)} (${c.Enrolled}/${c.Cap})</option>`).join('')}</select><button class="btn sm ghost" onclick="setEnr('${esc(id)}',$('#ac').value,'Registered',this)">Register</button><button class="btn sm gold" onclick="setEnr('${esc(id)}',$('#ac').value,'Enrolled',this)">Enroll (paid)</button></div><p class="mut" style="margin:8px 0 0">Enrolling sends the student their portal details by email the first time.</p>`:'<p class="mut">No other current classes are available.</p>'}
+ ${hasAct?`<h4 style="margin:18px 0 6px">Student portal</h4><p class="mut" style="margin:0 0 8px">${s.HasPortal?'The student has portal access.':'Portal access is created when you enroll the student.'}</p><button class="btn sm ghost" onclick="resetPortal('${esc(id)}',this)">Send a new portal password</button>`:''}
+ <div style="margin-top:20px"><button class="btn" onclick="closeM()">Close</button></div>`,true)}
+async function setEnr(sid,cid,status,b){if(!cid)return;if(status==='Enrolled'&&!confirm('Confirm that payment has been received and enroll this student?'))return;if(status==='Withdrawn'&&!confirm('Remove this student from the class?'))return;b.disabled=true;
+ try{SM=await R('assignClass',TOK,sid,cid,status,BASE);CL=null;toast(status==='Enrolled'?'Student enrolled.':status==='Withdrawn'?'Student removed.':'Student registered.',true);stuClasses(sid);if(tab==='Candidates'&&cview==='students')drawStuList()}catch(e){b.disabled=false;clErr(e)}}
+async function resetPortal(sid,b){if(!confirm('Send this student a new temporary portal password by email?'))return;b.disabled=true;try{SM=await R('resetStudentPw',TOK,sid,BASE);toast('A new password was emailed.',true);b.disabled=false}catch(e){b.disabled=false;clErr(e)}}
+async function decide(id,ok,b){b.disabled=true;try{SM=await R('decideEdit',TOK,id,ok);toast(ok?'Request approved and applied.':'Request rejected.',true);tCands()}catch(e){b.disabled=false;clErr(e)}}
+
+/* ---- Homework tab (teachers: their own; administrators: everyone's) ---- */
+const hwList=()=>D.exams.filter(e=>e.Kind==='homework'&&(!fo||exOwn(e)===fo));
+function tHomework(){if(dr)return edView();const L2=hwList();
+ $('#sp').innerHTML=`<div class="bar"><h2>Homework</h2><button class="btn" onclick="newHomework()">Create homework</button></div>${fBar()}`+(L2.length?`<div class="grid">${L2.map(e=>{const n=D.questions.filter(q=>q.Code==e.Code).length,pc=D.papers.filter(p=>p.Code==e.Code).length,as=D.cands.filter(c=>c.Code==e.Code&&c.StudentID).length,sb=D.subs.filter(s=>s.Code==e.Code).length,late=e.Deadline&&new Date(e.Deadline)<new Date();
+  return`<div class="card"><h3>${esc(e.Title)}</h3><p><span class="tag">${esc(e.Code)}</span> ${late?'<span class="tag st-c">Closed</span>':'<span class="tag st-a">Open</span>'}</p><p class="mut">Deadline: <b style="color:var(--ink)">${e.Deadline?esc(new Date(e.Deadline).toLocaleString([],{dateStyle:'medium',timeStyle:'short'})):'—'}</b></p>${adm()?`<p class="mut">Created by: <b style="color:var(--ink)">${esc(tname(exOwn(e)))||'Not assigned'}</b></p>`:''}<p>${pc} section(s), ${n} question(s)<br><span class="mut">${as} assigned · ${sb} submitted</span></p>
+  <div class="row"><button class="btn sm" onclick="editExam('${esc(e.Code)}')">${adm()?'View / edit materials':'Edit'}</button><button class="btn sm gold" onclick="assignModal('${esc(e.Code)}')">Assign</button><button class="btn sm ghost" onclick="delExam('${esc(e.Code)}',this)">Delete</button></div></div>`}).join('')}</div>`:'<p class="mut">No homework yet. Choose Create homework to build your first one.</p>')}
+const newHomework=()=>{dr={id:'',kind:'homework',title:'',start:'',deadline:'',owner:fo||D.me.user,papers:[]};edView()};
+
+/* ---- Assign an exam or homework to students or a whole class ---- */
+async function assignModal(code){
+ const ex=D.exams.find(e=>e.Code===code);if(!ex)return;modal('<h3>Assign</h3><p class="mut">Loading…</p>',true);
+ try{const[stus,cls]=await Promise.all([R('myStudents',TOK),R('listClasses',TOK)]),have=new Set(D.cands.filter(c=>c.Code===code&&c.StudentID).map(c=>String(c.StudentID)));
+  modal(`<h3>Assign “${esc(ex.Title)}”</h3><h4 style="margin:12px 0 4px">To students</h4><p class="mut" style="margin:0 0 8px">${adm()?'Every student is listed.':'Your students, as assigned to you by the administrator.'}</p>
+  ${stus.length?`<input id="asq" placeholder="Search students" oninput="asFilter(this.value)"><div class="aslist">${stus.map(s=>{const h=have.has(String(s.StudentID));return`<label class="chk2" data-n="${esc((s.Name+' '+s.StudentID).toLowerCase())}"><input type="checkbox" value="${esc(s.StudentID)}" ${h?'checked disabled':''}><span><b>${esc(s.Name)}</b> <small class="mut">${esc(s.StudentID)}${h?' · already assigned':''}</small></span></label>`}).join('')}</div><button class="btn" style="margin-top:10px" onclick="doAssign('${esc(code)}',this)">Assign to selected students</button>`:'<p class="mut">No students are assigned to you yet. Ask the administrator to assign students to you in the Candidates tab.</p>'}
+  <h4 style="margin:22px 0 6px">Or to everyone in a class</h4>${cls.length?`<div style="display:flex;gap:10px;flex-wrap:wrap"><select id="asc" style="flex:1;min-width:200px">${cls.map(c=>`<option value="${esc(c.ClassID)}">${esc(c.Name)} (${c.Enrolled} enrolled)</option>`).join('')}</select><button class="btn gold" onclick="doAssignClass('${esc(code)}',this)">Assign to class</button></div>`:'<p class="mut">There are no current classes.</p>'}
+  <div style="margin-top:20px"><button class="btn ghost" onclick="closeM()">Close</button></div>`,true)}catch(e){closeM();toast(e.message||e)}}
+const asFilter=v=>{v=v.trim().toLowerCase();document.querySelectorAll('.chk2').forEach(l=>l.style.display=!v||l.dataset.n.includes(v)?'':'none')};
+async function doAssign(code,b){const ids=[...document.querySelectorAll('.chk2 input:checked:not(:disabled)')].map(i=>i.value);if(!ids.length)return toast('Choose at least one student.');b.disabled=true;
+ try{const r=await R('assignToStudents',TOK,code,ids);closeM();await refresh(true);toast('Assigned to '+r.added+' student'+(r.added===1?'':'s')+'.',true)}catch(e){b.disabled=false;toast(e.message||e)}}
+async function doAssignClass(code,b){b.disabled=true;try{const r=await R('assignExamToClass',TOK,code,$('#asc').value);closeM();await refresh(true);toast(r.added?'Assigned to '+r.added+' student'+(r.added===1?'':'s')+' in '+r.cls+'.':'Everyone in '+r.cls+' already has it.',true)}catch(e){b.disabled=false;toast(e.message||e)}}
+const assignClassExam=assignModal;
+
 function tStaff(){$('#sp').innerHTML=`<div class="bar"><h2>Staff</h2></div><div class="card"><h3>Add a teacher or administrator</h3><div class="fg"><div><label for="sn1">Full name</label><input id="sn1"></div><div><label for="se">Email</label><input id="se" type="email"></div><div><label for="su2">Username <small>(optional)</small></label><input id="su2" autocomplete="off" placeholder="Made from the email if left empty"></div><div><label for="sr">Role</label><select id="sr"><option value="teacher">Teacher</option><option value="admin">Administrator</option></select></div></div>
  <label class="chk" style="margin-top:12px"><input type="checkbox" id="sm" checked> Email the login details to this person</label><button class="btn" style="margin-top:14px" onclick="addStaff(this)">Create account</button></div>
  <div class="card tw"><table><tr><th>Name</th><th>Username</th><th>Email</th><th>Role</th><th>Exams</th><th></th></tr>${D.staff.map(r=>{const me=r.Username===D.me.user;return`<tr><td>${esc(r.Name)}${me?' <span class="tag">You</span>':''}</td><td><b>${esc(r.Username)}</b>${r.Pending?' <span class="tag">Temporary password</span>':''}</td><td>${esc(r.Email)}</td><td>${r.Role==='admin'?'Administrator':'Teacher'}</td><td>${r.Exams}</td><td>${me?'':`<button class="btn sm ghost" onclick="resetPw('${esc(r.Username)}',this)">Reset password</button> <button class="btn sm ghost" onclick="delStaff('${esc(r.Username)}',this)">Remove</button>`}</td></tr>`}).join('')}</table></div>`}
@@ -438,6 +723,7 @@ function crash(){document.title='404 Not Found';document.body.style.cssText='bac
  if(!kind){crash();return}                              // one wrong or missing character lands here
  setIcon();
  STAFF=kind==='staff';
- if(STAFF)(TOK?staff():staffLoginView());else loginView();
+ if(kind==='portal'){PTOK?stuOpen():hallView()}
+ else if(STAFF)(TOK?staff():staffLoginView());else loginView();
 })();
 </script></body></html>
